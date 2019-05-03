@@ -1,42 +1,34 @@
 
 import {
-  OnChanges,
-  OnInit,
-  DoCheck,
-  OnDestroy,
-  Component
+  Component, OnInit
 } from '@angular/core';
+import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-show',
   templateUrl: './show.component.html',
-  styleUrls: ['./show.component.css']
+  styleUrls: ['./show.component.css'],
+  providers: [ProductService]
 })
-export class ShowComponent implements OnChanges,
-  OnInit,
-  DoCheck,
-  OnDestroy {
+export class ShowComponent implements OnInit {
   check = 'good';
   show: string;
-  constructor() { }
-
+  productList: Product[];
+  constructor(private productService: ProductService) { }
   ngOnInit() {
-    const a = this.check;
-    this.myMethod();
-  }
-  ngDoCheck() {
-
+    this.productList = this.productService.getProductList();
   }
 
-  ngOnChanges() { }
-  ngOnDestroy() { }
-
-  myMethod() {
-    debugger;
-    for (let index = 0; index < 5; index++) {
-      document.write(index.toString());
-
-    }
+  getData() {
   }
+
+
+
+
+
+
+
+
 
 }

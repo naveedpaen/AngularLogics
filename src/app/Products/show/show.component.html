@@ -2,5 +2,9 @@
   show works!
 </p>
 
-<span>{{show}}</span>
-<app-add></app-add>
+
+<div *ngFor='let i of productList'>
+  <span>{{i.id}}</span>
+  <span>{{i.Name}}</span>
+
+</div>
