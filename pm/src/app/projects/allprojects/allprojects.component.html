@@ -1,0 +1,164 @@
+<!-- <mat-toolbar style="color: white; background-color: #4ba979; padding: 20px 20px 20px 20px;">
+  All Projects
+</mat-toolbar> -->
+
+<mat-toolbar class="page-section-header">
+  <h2>All Projects</h2>
+</mat-toolbar>
+
+
+
+
+<!-- <mat-toolbar style="background-color: #17a2b8; color: #ffffff; padding: 20px 20px 20px 20px;">
+  <h2 style="color: #ffffff" > All Projects</h2>
+</mat-toolbar> -->
+
+
+<mat-card>
+
+
+  <form [formGroup]='formGroup'>
+    <div class="row">
+
+
+      <div class=" col-lg-2">
+        <mat-form-field>
+          <mat-select placeholder="Select Portal" (change)='onPortalChange()' formControlName="portalId">
+            <mat-option *ngFor="let portals of portalList" [value]="portals.id">
+              {{portals.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-lg-2">
+        <mat-form-field>
+          <mat-select placeholder="Select Accountant" (change)='onAccountantChange()' formControlName="accountantId">
+            <mat-option *ngFor="let accountant of accountantList" [value]="accountant.id">
+              {{accountant.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+
+      <div class="col-lg-2">
+        <mat-form-field>
+          <mat-select placeholder="Select Project" formControlName="projectId">
+            <mat-option *ngFor="let projects of projectList" [value]="projects.id">
+              {{projects.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+
+
+      <div class=" offset-2 col-lg-4">
+        <div class="button-row">
+          <button class="pull-right" mat-raised-button color="primary" routerLink="/projects/add">Add Project </button>
+          <button (click)='search()' mat-raised-button color="primary" class="pull-right">Search </button>
+          <button (click)='clear()' mat-raised-button class="pull-right">Clear</button>
+        </div>
+      </div>
+
+    </div>
+  </form>
+
+  <div class="row">
+    <div class="col-md-12">
+      <!--
+      <img src="./assets/images/allproject.JPG">
+ -->
+
+      <!-- ..............................................      Table      ........................................-->
+      <p-table [columns]="tableColumns" [value]="allProjectsList" sortMode="multiple" [loading]="loading"
+        [paginator]="false" [responsive]="true" sortField="ProjectId">
+        <ng-template pTemplate="header" let-columns>
+          <tr [ngClass]="columns.css">
+            <th [ngClass]="col.css" width="{{col.width}}" *ngFor="let col of columns" [pSortableColumn]="col.field">
+              {{col.header}}
+              <p-sortIcon [field]="col.field"></p-sortIcon>
+            </th>
+            <th width="50">Actions</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-project let-rowData let-columns="columns">
+          <tr>
+
+
+            <td style="border: none">
+              <span> <img [src]="decideFlag(project.portalId)" height="20px" width:15px> </span>
+              <span style="font-size: 18px;">{{project.name}}</span> <span [ngClass]="decideStatus(project.status)"
+                class="pull-right">{{project.status}}</span> <br> &nbsp; &nbsp; &nbsp;
+              <span style="color:#42a7d0f7; font-size: 12px" matTooltip="Accountant">{{project.accountant}}</span>
+              &nbsp; | &nbsp;
+              <span class="step" matTooltip="Progress" style="font-size: 12px">{{project.progress}}</span>
+
+
+              <!-- <span [ngClass]="decideStatus(project.status)" class="pull-right" style="color: black;">{{project.status}}</span> -->
+
+            </td>
+            <td style="border: none">{{project.accountManager}}</td>
+            <td style="border: none">{{project.startDate| date: "d/MM/y"}}</td>
+
+            <!-- <td style="border: none">
+                <span [ngClass]="decideStatus(project.status)">{{project.status}}</span>
+              </td>  -->
+
+            <td style="border: none">
+              <button mat-icon-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+
+                <button mat-menu-item (click)="detail(rowData)">
+                  <span class="actionmenu_list">
+                    <mat-icon>layers</mat-icon>
+                    <span>Detail</span>
+                  </span>
+                </button>
+
+                <button mat-menu-item (click)="edit(rowData)">
+                  <span class="actionmenu_list">
+                    <mat-icon>mode_edit</mat-icon>
+                    <span>Edit</span>
+                  </span>
+                </button>
+
+                <button mat-menu-item (click)="delete(rowData)">
+                  <span class="actionmenu_list">
+                    <mat-icon>delete</mat-icon>
+                    <span>Delete</span>
+                  </span>
+                </button>
+              </mat-menu>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+
+
+      <!--  ........................      Paginator      ......................................-->
+      <div class="col-md-12">
+        <br>
+        <p-paginator (onPageChange)="paginate($event)" [rows]="pageSize" [totalRecords]="totalRecords"
+          [rowsPerPageOptions]="rowsPerPageOptions" [first]="currentPage" [alwaysShow]="true" pageLinkSize='4'>
+        </p-paginator>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</mat-card>
+
+
+
+<!-- <app-taskdetail></app-taskdetail> -->

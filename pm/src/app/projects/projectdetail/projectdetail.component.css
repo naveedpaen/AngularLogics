@@ -1,0 +1,44 @@
+
+.issue_attachments p {
+ display: inline-block;
+}
+
+.issue_attachments p span {
+ display: block;
+ font-size: 9px;
+}
+
+
+.comment_parent {
+    display: grid;
+    width: 100%;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #d7d6d6;
+}
+
+
+
+.comment_header {
+    color:#973636;
+    font-size : 13px;
+}
+
+
+
+.mat-input-container {
+    display: block;
+    margin-top: -4px;
+}
+
+
+/* background-color: #eee; */
+
+
+.loaderclass {
+    width: 100px;
+    height: 100px;
+    margin-top: 142px;
+    position: absolute;
+    margin-left: 42%;
+    }

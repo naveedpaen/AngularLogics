@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <!-- To Do -->
+    <div class="col-lg-3">
+      <h4 style="border:1px #5e9adb solid; margin-bottom:0px;     background-color: #5e9adb;    padding: 11px;">To Do</h4>
+      <div style="border: 1px solid #5e9adb" (onDrop)="drop('toDo')" pDroppable="item">
+        <ul class="list-group" pDroppable="aa" pDraggable="aa" *ngFor="let item of toDoList" pDraggable="item"
+          (onDragStart)="dragStart($event,item, 'toDo')">
+          <li style="border:0px" class="list-group-item"><b>{{item.Grades}}</b>
+            <span class="pull-right" style="color:red; padding-right: 14px;"><b>M</b> </span>
+            <h6 style="color:#000000">{{item.Description}}</h6>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- In Progress -->
+    <div class="col-lg-3">
+      <h4 style="border:1px #6cc4d3 solid; background-color: #6cc4d3;  margin-bottom: 0px; padding: 11px;">In Progress</h4>
+      <div style="border: 1px solid #6cc4d3" (onDrop)="drop('inProgress')" pDroppable="item">
+        <ul class="list-group" pDroppable="aa" pDraggable="aa" *ngFor="let item of inProgressList" pDraggable="item"
+          (onDragStart)="dragStart($event,item,'inProgress')">
+          <li style="border:0px" class="list-group-item"><b>{{item.Grades}}</b>
+            <span class="pull-right" style="color:red; padding-right: 14px;"><b>M</b> </span>
+            <h6 style="color:#000000">{{item.Description}}</h6>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- Delay -->
+    <div class="col-lg-3">
+      <h4 style="border:1px #e77858 solid; margin-bottom: 0px; padding: 11px;background-color: #e77858;">Delay</h4>
+      <div style="border: 1px solid #e77858" (onDrop)="drop('delay')" pDroppable="item">
+        <ul class="list-group" pDroppable="aa" pDraggable="aa" *ngFor="let item of delayList" pDraggable="item"
+          (onDragStart)="dragStart($event,item, 'delay')">
+          <li style="border:0px" class="list-group-item"><b>{{item.Grades}}</b>
+            <span class="pull-right" style="color:red; padding-right: 14px;"><b>M</b> </span>
+            <h6 style="color:#000000">{{item.Description}}</h6>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+    <!-- Done -->
+    <div class="col-lg-3">
+      <h4 style="border:1px #92ca7b solid; background-color: #92ca7b; margin-bottom: 0px; padding: 11px;">Done</h4>
+      <div style="border: 1px solid #92ca7b" (onDrop)="drop( 'done')" pDroppable="item">
+        <ul class="list-group" pDroppable="aa" pDraggable="aa" *ngFor="let item of DoneList" pDraggable="item"
+          (onDragStart)="dragStart($event,item, 'done')">
+          <li (click)="abc(item)" style="border:0px; cursor:pointer;" class="list-group-item">
+            <!-- <button mat-icon-button [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button> -->
+            <!-- <mat-icon>more_vert</mat-icon> -->
+            <b>{{item.Grades}}</b>
+            <span class="pull-right" style="color:red; padding-right: 14px;"><b>M</b></span>
+            <h6 style="color:#000000; ">{{item.Description}}</h6>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+
+
+
+
+
+<!--.........................................        Detail  Pop Up          ......................................-->
+
+<p-dialog [(visible)]="displayPopUp" [draggable]=true [modal]=true [width]="900" [positionTop]='180'>
+  <p-header>
+     <h3 style="display: inline;">{{detailHeader}}</h3>
+  </p-header>
+  <div class="row">
+    <div class="col-md-12">
+      <!-- <h3>{{dsetailHeader}}</h3> -->
+      <span>{{detaildesc}}</span>
+    </div>
+  </div>
+  <div class="button-row">
+    <button mat-raised-button color="primary" class="pull-right">Save</button>
+    <button (click)="hidePopUp()" mat-raised-button class="pull-right">Cancel</button>
+  </div>
+</p-dialog>
