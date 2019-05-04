@@ -1,6 +1,7 @@
-<p>
-  lifecycle works!
-</p>
+<hr>
+<h2>
+  Parent Component
+</h2>
 
 <span class="setup">Given Number</span>
 <h1 class="punchline">{{ data }}</h1>
@@ -8,3 +9,5 @@
 </button>
 <button type="button" class="btn btn-danger" (click)="deleteNumber()">Clear Number
 </button>
+
+<app-childlifecycle [id]='data'></app-childlifecycle>

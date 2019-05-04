@@ -18,6 +18,7 @@ export class ShowComponent implements OnInit {
   constructor(private productService: ProductService) { }
   ngOnInit() {
     this.productList = this.productService.getProductList();
+
   }
 
   getData() {
