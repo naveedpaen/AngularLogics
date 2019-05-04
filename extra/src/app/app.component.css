@@ -1,0 +1,14 @@
+
+.comment_parent {
+    display: grid;
+    width: 100%;
+    padding: 10px;
+    background-color: #eee;
+    border: 1px solid #d7d6d6;
+}
+
+
+.comment_header {
+    color:#c80002;
+    font-size : 18px;
+}

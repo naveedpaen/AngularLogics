@@ -1,0 +1,113 @@
+
+  <mat-toolbar>
+Add User
+  </mat-toolbar>
+
+
+  <mat-card>
+
+
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-lg-8">
+            <div class="row">
+                <div class="col-lg-6">
+                    <mat-form-field >
+                        <input matInput placeholder="First Name">
+                      </mat-form-field>
+                </div>
+
+                <div class="col-lg-6">
+                    <mat-form-field >
+                        <input matInput placeholder="Surname">
+                      </mat-form-field>
+                </div>
+
+                <div class="col-lg-6">
+                    <mat-form-field >
+                        <input matInput placeholder="Email/Username">
+                      </mat-form-field>
+                </div>
+
+                <div class="col-lg-6">
+                    <mat-form-field >
+                        <input matInput placeholder="Password">
+                      </mat-form-field>
+                </div>
+
+                <div class="col-lg-6">
+                    <mat-form-field >
+                        <input matInput placeholder="Contact">
+                      </mat-form-field>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- <div class="form-group">
+                        <select class="form-control" id="exampleSelect1">
+                            <option>Country</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+                    </div> -->
+
+
+                    <mat-form-field>
+                        <mat-select placeholder="Country">
+                          <mat-option> 1 </mat-option>
+                          <mat-option> 2</mat-option>
+                          <mat-option> 3</mat-option>
+                          <mat-option> 4</mat-option>
+                          <mat-option> 5</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                </div>
+
+                <div class="col-lg-6">
+                    <mat-form-field>
+                        <mat-select placeholder="Status">
+                          <mat-option> 1 </mat-option>
+                          <mat-option> 2</mat-option>
+                          <mat-option> 3</mat-option>
+                          <mat-option> 4</mat-option>
+                          <mat-option> 5</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="user_photo">
+                <img src="./assets/images/upload-user-photo.jpg" alt="">
+            </div>
+
+            <div class="user_link">
+                <br>
+                <a >Upload Project photo</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class=" col-lg-12">
+            <div class="button-row">
+              <button mat-raised-button color="primary" class="pull-right">Save</button>
+                <button mat-raised-button class="pull-right">Cancel</button>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+
+</mat-card>

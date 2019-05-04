@@ -1,0 +1,628 @@
+
+.mat-form-field {
+	width: auto;
+}
+
+.md-spacer {
+	flex: 1 1 auto;
+}
+
+/************************************ Header Start ************************************/
+md-toolbar.main-site,
+mat-toolbar.main-site {
+	background-color: #c80002;
+}
+
+md-toolbar.main-site md-icon,
+mat-toolbar.main-site md-icon {
+	color: #fff;
+}
+
+/************************************ Header End ************************************/
+/************************************ Footer Start ************************************/
+
+footer {
+	float: left;
+	width: 100%;
+	padding: 10px;
+	border-top: 3px solid #c80002;
+}
+
+footer ul {
+	margin: 0;
+	padding: 0;
+}
+
+footer li {
+	display: inline-block;
+	list-style: none;
+}
+
+footer li:before {
+	content: "|";
+}
+
+footer li:first-child:before {
+	content: normal;
+}
+
+footer li a {
+	display: inline-block;
+	margin: 0 3px;
+	color: #2a2a2a;
+	text-decoration: none;
+}
+/************************************ Footer End ************************************/
+/************************************ Tags Start ************************************/
+
+md-select-menu.md-default-theme md-option[selected],
+md-select-menu md-option[selected],
+md-select-menu.md-default-theme md-option[selected]:focus,
+md-select-menu md-option[selected]:focus {
+	color: #c80002;
+}
+
+md-checkbox {
+	margin-bottom: 0px;
+	min-width: 15px;
+	min-height: 15px;
+}
+
+md-checkbox .md-container {
+	width: 15px;
+	height: 15px;
+}
+
+md-checkbox .md-icon {
+	width: 15px;
+	height: 15px;
+	border-color: #cccccc;
+}
+
+md-checkbox.md-checked .md-icon {
+	background-color: #5cb85c;
+}
+
+md-checkbox.md-checked .md-icon::after {
+	left: 5px;
+	top: 2px;
+	width: 5px;
+	height: 10px;
+}
+
+md-checkbox .md-label {
+	margin-left: 20px;
+}
+
+md-select {
+	width: 100%;
+	margin: 0px;
+	margin-top: 10px;
+}
+
+label {
+	font-weight: normal;
+}
+
+md-input-container:not(.md-input-has-value) input:not(:focus),
+md-input-container:not(.md-input-has-value) md-select-value:not(:focus),
+md-datepicker.ng-pristine .md-datepicker-input-container {
+	border-color: #b0b0b0;
+}
+
+/************************************ Tags End ************************************/
+/************************************ Tabs Start ************************************/
+
+.mat-tab-header,
+md-tabs-canvas {
+	border-bottom: 1px solid #ffffff;
+}
+
+#tabs_content mat-ink-bar {
+	top: 0;
+	background-color: #c80002;
+}
+
+.mat-tab-label-active,
+#tabs_content .md-active {
+	color: #c80002;
+	background-color: #ffffff;
+}
+
+.mat-tab-body-content,
+#tabs_content .mdcontent {
+	padding: 15px;
+	background-color: #ffffff;
+}
+
+#publish #tabs_content mat-ink-bar,
+#edit_portal #tabs_content mat-ink-bar {
+	top: auto;
+	bottom: 0;
+}
+
+/************************************ Tabs End ************************************/
+/************************************ Table Start ************************************/
+
+.ui-datatable thead th,
+.ui-datatable tfoot td {
+	text-align: left;
+}
+
+.ui-datatable .ui-datatable-thead>tr>th {
+	padding-top: 10px !important;
+	padding-bottom: 10px !important;
+}
+
+.ui-datatable thead th .ui-column-title {
+	font-weight: bold;
+}
+
+.ui-datatable th.ui-state-default {
+	background-color: #ffffff;
+}
+
+.ui-datatable th.ui-sortable-column:not(.ui-state-active):hover {
+    background: #f6f6f6;
+}
+
+.ui-datatable th.ui-state-active .ui-column-title,
+.ui-datatable th.ui-state-active .ui-sortable-column-icon  {
+	color: #c80002;
+}
+
+.ui-datatable tbody > tr.ui-widget-content.ui-datatable-odd {
+	background-color: #ffffff;
+}
+
+.ui-widget-header {
+	background: #ffffff;
+	border: 0px;
+}
+
+/*.ui-datatable .ui-datatable-thead > tr > th,*/
+.ui-datatable .ui-datatable-tfoot > tr > td,
+.ui-datatable .ui-datatable-data > tr > td {
+	border-style: none;
+}
+
+.ui-datatable .ui-datatable-thead tr th {
+	border-left: none;
+	border-right: none;
+}
+
+.ui-datatable .ui-datatable-thead tr th:first-child {
+	border-left: 1px solid #D5D5D5;
+}
+
+.ui-datatable .ui-datatable-thead tr th:last-child {
+	border-right: 1px solid #D5D5D5;
+}
+
+.table-responsive table md-checkbox .md-label {
+	display: none;
+}
+
+/************************************ Table End ************************************/
+/************************************ Paginator Start ************************************/
+
+.ui-datatable .ui-paginator {
+	padding: 15px 0;
+}
+
+.ui-paginator .ui-paginator-page,
+.ui-paginator .ui-paginator-pages,
+.ui-paginator .ui-paginator-next,
+.ui-paginator .ui-paginator-last,
+.ui-paginator .ui-paginator-first,
+.ui-paginator .ui-paginator-prev,
+.ui-paginator .ui-paginator-current {
+	display: initial;
+	margin: 0;
+	padding: 6px 12px;
+	border-color: #ddd;
+	border-right: 0px;
+	/**/
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.ui-paginator .ui-paginator-first {
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-bottom-left-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-bottomleft: 4px;
+	border-top-left-radius: 4px;
+	border-bottom-left-radius: 4px;
+}
+
+.ui-paginator .ui-paginator-last {
+	border-right: 1px solid #ddd;
+	/**/
+	-webkit-border-top-right-radius: 4px;
+	-webkit-border-bottom-right-radius: 4px;
+	-moz-border-radius-topright: 4px;
+	-moz-border-radius-bottomright: 4px;
+	border-top-right-radius: 4px;
+	border-bottom-right-radius: 4px;
+}
+
+.ui-paginator a.ui-state-disabled,
+.ui-paginator a:not(.ui-state-disabled):not(.ui-state-active):hover {
+	border-color: #ddd;
+}
+
+.ui-paginator .ui-paginator-pages {
+	margin: 0 -3px 0 0;
+	padding: 0;
+}
+
+.ui-paginator .ui-paginator-page.ui-state-active {
+	background: #c80002;
+	border-color: #c80002;
+}
+
+.ui-paginator .ui-paginator-rpp-options {
+	padding: 5px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/************************************ Paginator End ************************************/
+/************************************ Left Side Navigation Start ************************************/
+
+md-sidenav {
+	float: left;
+	width: 300px;
+	height: 100%;
+	background-color: #ffffff;
+	border-top: solid #f7f7f7 20px;
+}
+
+md-sidenav {
+	margin: 0 !important;
+	border: 0px;
+	/**/
+	-webkit-border-radius: 0px !important;
+	-moz-border-radius: 0px !important;
+	border-radius: 0px !important;
+}
+
+.mat-expansion-panel-header {
+	display: block;
+	padding: 15px 15px;
+	background-color: #DFE0E0;
+	border-bottom: 1px solid #ffffff;
+	color: #333333;
+	font-size: 13px;
+	font-weight: 400;
+	text-decoration: none;
+	line-height: 19px;
+	cursor: pointer;
+}
+
+.mat-expansion-panel-header .mat-expansion-panel-header-title md-icon {
+	width: 20px;
+	font-size: 19px;
+	text-align: center;
+}
+
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-keyboard-focused,
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]).cdk-program-focused,
+.mat-expansion-panel:not(.mat-expanded) .mat-expansion-panel-header:not([aria-disabled=true]):hover,
+.mat-expansion-panel-header.mat-expanded:focus,
+.mat-expansion-panel-header.mat-expanded:hover,
+.mat-expanded .mat-expansion-panel-header {
+	background-color: #c80002;
+	border-bottom: 1px solid #ffffff;
+	color: #fff;
+}
+
+.mat-expansion-panel-spacing {
+    margin: 0;
+}
+
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}
+
+.mat-expansion-panel-header:hover .mat-expansion-panel-header-title,
+.mat-expanded .mat-expansion-panel-header .mat-expansion-panel-header-title {
+	color: #fff;
+}
+
+.mat-expansion-indicator {
+	display: none;
+}
+
+.mat-expansion-panel-body {
+	padding: 0;
+	border: 0px !important;
+	/**/
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+}
+
+.leftnavi_subnavi {
+	margin: 0;
+	padding: 0;
+}
+
+.leftnavi_subnavi li {
+	display: block;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.leftnavi_subnavi li a {
+	display: block;
+	padding: 10px 10px 10px 23px;
+	background-color: #ffffff;
+	border-bottom: 1px solid #dddada;
+	color: #333333;
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.leftnavi_subnavi li a::before {
+	display: inline-block;
+	padding-right: 14px;
+	font-family: FontAwesome;
+	content: "\f105";
+	font-size: 15px;
+}
+
+.leftnavi_subnavi li a:hover,
+.leftnavi_subnavi li.active a {
+	background-color: #eaeaea;
+	color: #333333;
+}
+
+/************************************ Left Side Navigation End ************************************/
+/************************************ angular-material Overwrite Start ************************************/
+.mat-toolbar {
+	padding: 0;
+	background-color: #fafafa;
+}
+
+.md-default {
+	margin-right: 5px;
+	color: #000 !important;
+	background-color: #f6f6f6;
+}
+
+.mat-button {
+	color: #fff;
+}
+
+.insideBtn {
+	margin-right: -15px;
+}
+
+.cdk-overlay-container {
+	z-index: 1010;
+	z-index: 1100;
+}
+
+.mat-input-container {
+	display: block;
+    margin-top: 20px;
+}
+
+.md-select-menu-container.md-active {
+	z-index: +999999;
+}
+
+.mat-checkbox-inner-container {
+	width: 15px;
+	height: 15px;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background,
+.mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+	background-color: #5cb85c;
+}
+
+.mat-ripple-element {
+	background-color: rgba(92, 184, 92, .4) !important;
+}
+
+/************************************ angular-material Overwrite End ************************************/
+/************************************ Bootstrap Overwrite Start ************************************/
+.btn-xs,
+.btn-group-xs > .btn {
+	padding: 5px 6px;
+	font-size: 13px;
+}
+
+.label {
+	line-height: inherit;
+	padding: 4px 10px;
+	font-size: 13px;
+	font-weight: normal;
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.labelP {
+	padding: 7px 10px;
+}
+
+.table-responsive table thead th .label {
+	padding: 1px 10px;
+	font-size: 11px;
+}
+
+.label-secondary {
+	background-color: #1abc9c;
+}
+
+.btn-group,
+.btn-group-vertical {
+	margin-bottom: 5px;
+}
+
+/************************************ Bootstrap Overwrite End ************************************/
+/************************************ Class Start ************************************/
+
+.btn_font {
+	font-size: 13px;
+	line-height: normal;
+}
+
+.text_red {
+	color: #c80002;
+}
+
+.text_white {
+	color: #FFFFFF;
+}
+
+.text_gray {
+	color: #505050;
+}
+
+
+
+/* color changed from #5cb85c to #17a2b8  by Nav   */
+.md-primary,
+.mat-raised-button.mat-primary {
+	background-color: #5cb85c !important;
+}
+
+.md-primary:hover,
+.mat-raised-button.mat-primary:hover {
+	background-color: #5cb85c!important;
+}
+
+.md-secondary,
+.mat-raised-button.mat-secondary {
+	background-color: #1abc9c !important;
+}
+
+.md-secondary:hover,
+.mat-raised-button.mat-secondary:hover {
+	background-color: #16a78a !important;
+}
+
+.md-warn {
+	background-color: #c80002 !important;
+}
+
+.md-warn:hover {
+	background-color: #da0103 !important;
+}
+
+.md-info {
+	background-color: #337ab7 !important;
+}
+
+.md-info:hover {
+	background-color: #27659a !important;
+}
+
+.button-row [class*="mat-raised"] {
+	margin: 5px;
+}
+
+.mydatepicker {
+	position: relative;/*margin-top: 10px;*/
+}
+ @-moz-document url-prefix() {
+ .mydatepicker {
+ margin-top: 24px;
+}
+}
+
+.mydatepicker .md-datepicker-button {
+	position: absolute;
+	/*top: 21px;*/
+	z-index: 1;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.v_align {
+	vertical-align: middle !important;
+}
+
+.modal-dialog .medium {
+	width: 700px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+
+.mydatepicker .md-datepicker-button {
+	top: 21px;
+}
+}
+
+.mydatepicker .md-datepicker-input-container {
+	display: block;
+	margin-top: 4px;
+	margin-left: 50px;
+}
+
+.btn_full_w {
+	display: block;
+	width: 100%;
+}
+
+.actionmenu .mat-icon-button {
+	width: 35px;
+	height: 28px;
+	margin: 5px 2px;
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+	line-height: 20px;
+	/**/
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.actionmenu md-icon {
+	font-size: 17px;
+}
+
+.actionmenu_list {
+	display: block;
+}
+
+.actionmenu_list .mat-icon {
+	height: 17px;
+	width: 17px;
+	margin-right: 10px;
+}
+
+.actionmenu_list .material-icons {
+	font-size: 17px;
+}
+
+/************************************ Class End ************************************/
+
+/************************************ zdn End ************************************/
+/************************************ zdb ************************************/
+@media (min-width: 1200px) {
+}
+
+/************************************ ztab ************************************/
+@media (min-width: 768px) and (max-width: 992px) {
+}
+
+/************************************ zp ************************************/
+@media screen and (max-width: 767px) {
+}
+
+@media screen and (max-width: 456px) {
+}
+
+
+
+.ui-dialog .ui-widget-header { 
+	background-color: #eaeaea  !important;
+}

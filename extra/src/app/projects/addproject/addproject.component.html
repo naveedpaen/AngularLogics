@@ -1,0 +1,243 @@
+<!-- <mat-toolbar style="background-color: #17a2b8; color: #ffffff; padding: 20px 20px 20px 20px;">
+  <h2 style="color: #ffffff" >Add Project</h2>
+</mat-toolbar> -->
+
+
+
+<mat-toolbar class="page-section-header">
+  <h2>Add Project</h2>
+</mat-toolbar>
+
+<form [formGroup]='formGroup' (ngSubmit)="save(formGroup.value)">
+  <mat-card>
+      <div class="row">
+          <div class="col-md-12">
+
+              <div *ngIf="showLoader" class="row">
+                  <mat-spinner [color]="color" class=" loaderclass"></mat-spinner>
+                  </div>
+                      <div>
+
+                        
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3">
+          <mat-form-field>
+            <input matInput placeholder="Project Name" formControlName="name">
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3">
+          <mat-form-field>
+            <mat-select  placeholder="Select Portal" (change)="onPortalChange()" formControlName="portalId">
+              <mat-option *ngFor="let portal of formData.portals" [value]="portal.id">
+                {{portal.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-3" *ngIf='showWithAdd' >
+          <mat-form-field>
+            <mat-select placeholder="Select Accountant"  multiple formControlName="accountantIds">
+              <mat-option *ngFor="let accountant of formData.accountants" [value]="accountant.id" >
+                {{accountant.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-lg-3" *ngIf='showWithEdit' >
+            <mat-form-field>
+              <mat-select placeholder="Select Accountant"   formControlName="accountantIds">
+                <mat-option *ngFor="let accountant of formData.accountants" [value]="accountant.id" >
+                  {{accountant.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+        <div class="col-lg-3">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker2" placeholder="Target Date" formControlName="targetDate">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+
+
+      </div>
+      <br><br>
+
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>Account Manager</h4>
+          <div class="row">
+            <div class="col-12">
+              <mat-form-field>
+                <mat-select placeholder="Account Manager"  formControlName="accountManagerId">
+                  <mat-option *ngFor="let assignee of formData.assignees" [value]="assignee.id">
+                    {{assignee.name}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <h4>Select Website Template</h4>
+          <mat-form-field>
+            <mat-select placeholder="Website Template" formControlName="templateId">
+              <mat-optgroup *ngFor="let group of formData.websiteTemplates" [label]="group.name" [disabled]="false">
+                <mat-option *ngFor="let template of group.list" [value]="template.id">
+                  {{template.name}}
+                </mat-option>
+              </mat-optgroup>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-lg-4">
+          <h4>Url</h4>
+
+          <mat-form-field>
+            <input matInput placeholder="URL link " formControlName="url">
+          </mat-form-field>
+        </div>
+
+      </div>
+      <br>
+      <div class="row">
+
+        <div class="col-lg-4">
+          <!-- <h4>Select Products</h4> -->
+          <mat-form-field>
+            <mat-select placeholder="Products"  multiple formControlName="selectedProductIds">
+              <mat-option *ngFor="let product of formData.products" [value]="product.id">
+                {{product.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+            
+        <div class="col-lg-4" >
+          <mat-form-field>
+              <mat-select  [(ngModel)]="selectedEmailLayout" placeholder="Select Email Layout"  formControlName="emailLayout">
+              <mat-option *ngFor="let ct of EmailLayout" [value]="ct.id">
+              {{ ct.title }}
+              </mat-option>
+              </mat-select>
+              </mat-form-field>
+        </div> 
+
+        <div class="col-lg-4" *ngIf="showStatus">
+            <!-- <h4>Status</h4> -->
+            <mat-form-field>
+              <mat-select placeholder="Select Status"   formControlName="statusId">
+                <mat-option *ngFor="let status of formData.status" [value]="status.id">
+                  {{status.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div> 
+
+
+        <div class="col-lg-2 " >
+          <br>
+          <h4>Maintenance Plan</h4>
+          <mat-radio-group formControlName="maintenance">
+            <mat-radio-button value="1">Yes</mat-radio-button>
+            <mat-radio-button value="0">No</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="col-lg-2" style="padding-left: 41px">
+            <br>
+          <h4>Cookies Policy </h4>
+          <mat-radio-group formControlName="cookiesPolicy">
+            <mat-radio-button value='1'>Yes</mat-radio-button>
+            <mat-radio-button value='0'>No</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="col-lg-2" style="padding-left: 41px">
+          <br>
+        <h4>Privacy Policy </h4>
+        <mat-radio-group formControlName="privacyPolicy" >
+          <mat-radio-button value='1'>Yes</mat-radio-button>
+          <mat-radio-button value='0'>No</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+
+
+
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-12" >
+          <strong class="text_red">Description:</strong>
+          <p-editor formControlName="description" placeholder="Write Description Here" [style]="{'height':'180px'}"></p-editor>
+
+
+        </div>
+      </div>
+      <br>
+      <div class="row">
+
+        <div class="col-md-12">
+          <br>
+          <br>
+          <strong class="text_red">Attachments:</strong>
+          <hr>
+          <br>
+          <br>
+          <div class="row" *ngIf="projectId!==0">
+
+            <div class="col-md-4" *ngFor="let attachment of attachmentList">
+              <div class="issue_attachments">
+                <button type="button" mat-icon-button (click)="removeAttachment(attachment.id)">
+                  <mat-icon style="margin-top: -15px;">close</mat-icon>
+                </button>
+                <img src="{{getAttachmentPath(attachment)}}" style="height: 114px;width: 114px;border: 1px solid lightgray;" alt="">
+                <p>
+                  <a href="{{getAttachmentPath(attachment)}}" download>{{attachment.fileName}}</a>
+                  <span> {{attachment.dT_Created | date:"dd/MM/yyyy hh:mm:ss a"}}</span>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+        <div class="col-md-12">
+          <p-fileUpload name="myfile[]" #fileInput [url]="uploadUrl" accept="image/*,.pdf,.txt,.xls,.csv,.xlsx,.doc,.docx,.ppt,.pptx"
+            auto="auto" (onUpload)="onUpload($event)" (onBeforeSend)="beforeUpload($event)" (onError)="uploadError($event)"
+            multiple="multiple" maxFileSize="25000000">
+            <ng-template pTemplate="toolbar">
+              <mat-progress-bar mode="query" color="warn" *ngIf="uploadProgress"></mat-progress-bar>
+            </ng-template>
+            <ng-template pTemplate="content">
+              <ul *ngIf="uploadedFiles.length">
+                <li *ngFor="let file of uploadedFiles">{{file.fileName}}</li>
+              </ul>
+            </ng-template>
+          </p-fileUpload>
+        </div>
+      </div>
+        <br>
+        <div class="button-row">
+          <button mat-raised-button color="primary" class="pull-right" [disabled]="!formGroup.valid">Save</button>
+          <button mat-raised-button class="pull-right">Cancel</button>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+  </mat-card>
+</form>
+
+
+
+
