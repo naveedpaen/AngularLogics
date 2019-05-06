@@ -12,8 +12,8 @@ import { Product } from '../product';
   providers: [ProductService]
 })
 export class ShowComponent implements OnInit {
+  showHide = false;
   check = 'good';
-  show: string;
   productList: Product[];
   constructor(private productService: ProductService) { }
   ngOnInit() {
@@ -21,7 +21,13 @@ export class ShowComponent implements OnInit {
 
   }
 
-  getData() {
+  show() {
+    if (this.showHide === true) {
+      this.showHide = false;
+    } else {
+      this.showHide = true;
+    }
+
   }
 
 

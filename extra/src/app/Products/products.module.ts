@@ -5,9 +5,10 @@ import { LifecycleComponent } from './lifecycle/lifecycle.component';
 import { ProductsRoutingModule } from './product-routing.module';
 import { ShowComponent } from './show/show.component';
 import { ChildlifecycleComponent } from './childlifecycle/childlifecycle.component';
+import { BindingComponent } from './binding/binding.component';
 
 @NgModule({
-  declarations: [AddComponent, ShowComponent, LifecycleComponent, ChildlifecycleComponent],
+  declarations: [AddComponent, ShowComponent, LifecycleComponent, ChildlifecycleComponent, BindingComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule
