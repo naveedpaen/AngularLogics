@@ -1,3 +1,4 @@
+import { HelperModule } from './../shared//helper/helper.module';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { AddComponent } from './add/add.component';
@@ -11,7 +12,8 @@ import { BindingComponent } from './binding/binding.component';
   declarations: [AddComponent, ShowComponent, LifecycleComponent, ChildlifecycleComponent, BindingComponent],
   imports: [
     CommonModule,
-    ProductsRoutingModule
+    ProductsRoutingModule,
+    HelperModule
   ]
 })
 export class ProductsModule { }
