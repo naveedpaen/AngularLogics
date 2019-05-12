@@ -21,8 +21,9 @@ export class LifecycleComponent implements OnChanges, OnInit, DoCheck, OnDestroy
   AfterViewInit,
   AfterViewChecked {
 
-  data = 100;
+  data = null;
   constructor() {
+    debugger;
     console.log(`Constructor data is ${this.data}`);
   }
   ngOnChanges() {

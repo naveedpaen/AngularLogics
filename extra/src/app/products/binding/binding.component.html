@@ -24,5 +24,12 @@
 <button mat-raised-button color="primary" [class]='' class="pull-right color">Save</button>
 
 <div class="container">
-  <button class="color" [ngClass]="addMyClasses()"> Shutdown2</button>
+  <button [style.color]="'green'"> Shutdown</button> <br><br>
+  <button style="font-size: 30px" [style.color]="myColor? 'green' :'red'"> Shutdown</button>
+  <button style="color: blue" [ngStyle]="addMyStyles()"> OK</button>
 </div>
+
+
+<h2>{{ PageHeader ? 'Show' : 'No Header'}} Detail</h2>
+<br><br>
+<h1 *ngIf='!stdList || stdList.length===0'>Doenot exist </h1>
