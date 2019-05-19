@@ -33,3 +33,9 @@
 <h2>{{ PageHeader ? 'Show' : 'No Header'}} Detail</h2>
 <br><br>
 <h1 *ngIf='!stdList || stdList.length===0'>Doenot exist </h1>
+
+<ng-container *ngFor="let a of myList">
+  <ul *ngIf="a.gender === 'male'">
+    <li>{{a.name}}</li>
+  </ul>
+</ng-container>
