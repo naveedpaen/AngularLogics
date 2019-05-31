@@ -31,6 +31,12 @@ export class ShowComponent implements OnInit {
   }
 
 
+  show2() {
+    this.showHide = !this.showHide;
+
+  }
+
+
 
 
 

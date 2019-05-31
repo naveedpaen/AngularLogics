@@ -30,7 +30,7 @@ export class BindingComponent implements OnInit {
   // Null, False , '', undefined, 0
   PageHeader = 0;
 
-  @Output myEventName 
+
   constructor() { }
   ngOnInit(): void {
 
@@ -57,10 +57,5 @@ export class BindingComponent implements OnInit {
 
   }
 
-}i', gender: 'male' },
-    ]
-
-
-  }
 
 }
