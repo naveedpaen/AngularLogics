@@ -3,7 +3,8 @@
     { "id": 1, "name": "Pakistan" },
     { "id": 2, "name": "UAE" },
     { "id": 3, "name": "Afghanistan" },
-    { "id": 4, "name": "Turkey" }
+    { "id": 4, "name": "Turkey" },
+    { "id": 4, "name": "Syria" }
   ],
   "cities": [
     { "id": 1, "name": "Islamabad" },
