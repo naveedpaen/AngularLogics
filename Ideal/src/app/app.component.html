@@ -18,11 +18,20 @@
       </li>
 
       <li class="nav-item ml-auto active">
-        <a class="nav-link ml-auto" routerLink="com1">Com1 <span class="sr-only">(current)</span></a>
+        <a class="nav-link ml-auto" routerLink="first">First <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item ml-auto active">
-        <a class="nav-link ml-auto" routerLink="com2">Com2 <span class="sr-only">(current)</span></a>
+        <a class="nav-link ml-auto" routerLink="second">Second <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item ml-auto active">
+        <a class="nav-link ml-auto" routerLink="third">Third <span class="sr-only">(current)</span></a>
+      </li>
+
+
+      <li class="nav-item ml-auto active">
+        <a class="nav-link ml-auto" routerLink="forth">Forth <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item ml-auto active">
@@ -31,6 +40,14 @@
 
       <li class="nav-item ml-auto active">
         <a class="nav-link ml-auto" routerLink="child">Child <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item ml-auto active">
+        <a class="nav-link ml-auto" routerLink="send-to-app">Send to app <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item ml-auto active">
+        <a class="nav-link ml-auto" routerLink="css">CSS <span class="sr-only">(current)</span></a>
       </li>
 
       <li class="nav-item dropdown ml-auto active">
@@ -63,5 +80,20 @@
 
 
 <div class="container">
+
+
   <router-outlet></router-outlet>
+  <app-first></app-first>
+
+
+
+  <router-outlet></router-outlet>
+
+<!-- main app container -->
+<div class="container text-center my-3">
+  <div *ngFor="let message of messages" class="alert alert-sm alert-info">{{message.text}}</div>
+</div>
+
+
+
 </div>

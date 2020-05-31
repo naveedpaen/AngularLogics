@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-import { ExtraComponent } from './extra/extra.component';
-
+import { ExtraComponent } from './extra/extra/extra.component';
 
 const routes: Routes = [
   {path: '' , component: ExtraComponent } ,

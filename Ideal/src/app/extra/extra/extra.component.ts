@@ -2,13 +2,16 @@ import { Component, OnInit } from "@angular/core";
 import { observable, of, Observable, pipe, from } from "rxjs";
 import { map, tap, observeOn, throwIfEmpty } from "rxjs/operators";
 import { HttpClientModule, HttpClient } from "@angular/common/http";
-import { ExtraService } from "./extra.service";
 
-import { country } from "../shared/models/country";
-import { city } from "../shared/models/city";
-import { Country_City_VM } from "../shared/models/country-city";
+//import { country } from "../shared/models/country";
+// import { city } from "../shared/models/city";
+// import { Country_City_VM } from "../shared/models/country-city";
 
-import * as data from './../../assets/json/coutries_cities.json';
+ import * as data from '../../../assets/json/coutries_cities.json';
+import { ExtraService } from '../extra.service';
+import { country } from 'src/app/shared/models/country';
+import { city } from 'src/app/shared/models/city';
+import { Country_City_VM } from 'src/app/shared/models/country-city';
 // /coutries_cities.json';
  
 interface Food { 
