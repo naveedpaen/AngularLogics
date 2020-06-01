@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription, observable, of, Observable, pipe, range } from "rxjs";
-import { MessageService } from "src/app/shared/services/message.service";
+import { MessageService } from "../../shared/services/message.service";
 import { takeLast } from "rxjs/operators";
 import { error } from "protractor";
 import { ObserversModule } from "@angular/cdk/observers";
@@ -23,10 +23,9 @@ export class ThirdComponent implements OnInit {
         observer.next("I canot be called");
         throw new RangeError();
       } catch (err) {
-        debugger
-        if(err instanceof RangeError){
-          console.log('out of range');
-      }
+        if (err instanceof RangeError) {
+          console.log("out of range");
+        }
         observer.error(err);
       }
     });

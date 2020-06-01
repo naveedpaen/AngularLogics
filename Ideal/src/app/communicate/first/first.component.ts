@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { EventEmitterService } from "src/app/shared/services/event-emitter.service";
+import { EventEmitterService } from "../../shared/services/event-emitter.service";
 
 @Component({
   selector: "app-first",
