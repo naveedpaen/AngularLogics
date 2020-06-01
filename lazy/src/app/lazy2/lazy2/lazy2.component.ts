@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UtilityService } from 'src/app/shared/utility.service';
+import { UtilityService } from '../../shared/utility.service';
 
 @Component({
   selector: 'app-lazy2',
