@@ -15,6 +15,25 @@ export class ThirdComponent implements OnInit {
 
   constructor() {}
   ngOnInit() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     const myObs = Observable.create(function subscribe(observer: any) {
       try {
         observer.next("Hey man!");
