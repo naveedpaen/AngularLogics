@@ -86,9 +86,8 @@ export class ThirdComponent implements OnInit {
 
     // a.pipe(takeLast(1));
     // this.myObj().subscribe(result => {
-    //   debugger
     //   const a = result;
-    // })
+    // }); 
   }
 
   myObj(): Observable<number[]> {

@@ -1,42 +1,89 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { EventEmitterService } from "../../shared/services/event-emitter.service";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { tap, map } from "rxjs/operators";
+interface country {
+  id: number;
+  Name: string;
+}
 @Component({
   selector: "app-first",
   templateUrl: "./first.component.html",
   styleUrls: ["./first.component.css"],
 })
-export class FirstComponent  {
-  constructor(private _eventEmitterService: EventEmitterService, 
-    private httpclient: HttpClient) {}
+export class FirstComponent {
+  @Output() CallParent = new EventEmitter();
+  fullName = "";
+  age = 20;
+  sentence: string = `Hello, my name is ${this.fullName}.
+    I'll be ${this.age + 1} years old next month.`;
+
+  constructor(
+    private _eventEmitterService: EventEmitterService,
+    private httpclient: HttpClient
+  ) {}
   ngOnInit() {
- const options = {
-  'headers': new HttpHeaders(
-    { 'test': '123'}
-
-  
-  )
-
- };
- console.log(options.headers.get( 'X-Requested-With'));
-    this.httpclient.get("http://localhost:3000/countries", options).subscribe(result => {
-debugger
-
+    let obs = Observable.create((observer: any) => {
+      observer.next("first");
+     // observer.complete("Completed");
+       observer.error("Sorry");
+      observer.next(1);
+      observer.next(true);
+      observer.next(null);
     });
 
+    obs.subscribe(
+    function (observer: any)  {
+        debugger;
+        console.log(observer);
+      },
+     function (issue)  {
+        alert("Error" + issue);
+      },
+      function () {
+        alert("Done!");
+      },
 
-    // subscribe means wait until you get something.
-    // below line basically starts listening for an event to emit from any where.
-    // this._eventEmitterService.eventObj.subscribe((name:string ) => {
-    //   this.firstComMethod(name);
-    // });
+    );
+
+    let obs2 = Observable.create(function annonymusFunction(observer: any) {
+      observer.next("Hello Worldd!");
+    });
+
+    const abcd = Observable.create();
+    const t = Observable.create(function subscribe2(observer: any) {
+      observer.next("Hi");
+    });
+
+    const fullName = "Naveed Ullah";
+    const age = 30;
+    let sentence: string = `Hello, my name is ${fullName}.
+    I'll be ${age + 1} years old next month.`;
+
+    let abc = `${age} i am fine`;
+
+    // this.getCountriesList().subscribe((result) => {});
   }
 
-  
-
-   firstComMethod(name: string) {
+  firstComMethod(name: string) {
     alert("I am method of " + name + " Component.");
   }
 
+  getCountriesList(): Observable<country[]> {
+    return this.httpclient
+      .get<country[]>("assets/json/countries.json", { observe: "response" })
+      .pipe(
+        tap((response) => console.log(response)),
+        map((response) => response.body)
+      );
+  }
+
+  getdata(data) {
+    debugger;
+  }
+
+  dataProducer() {
+    return "Hi Observable";
+  }
 }

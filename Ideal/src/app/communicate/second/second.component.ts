@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventEmitterService } from '../../shared/services/event-emitter.service';
 
-@Component({
+@Component({ 
   selector: 'app-second',
   templateUrl: './second.component.html',
   styleUrls: ['./second.component.css']
