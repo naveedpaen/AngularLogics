@@ -1,12 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { EventEmitterService } from "../../shared/services/event-emitter.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
-import { tap, map } from "rxjs/operators";
-interface country {
-  id: number;
-  Name: string;
-}
+import { Observable, of, observable } from "rxjs";
+import { tap, map, timeout } from "rxjs/operators";
+import { country } from "src/app/shared/models/country";
+
 @Component({
   selector: "app-first",
   templateUrl: "./first.component.html",
@@ -18,34 +16,67 @@ export class FirstComponent {
   age = 20;
   sentence: string = `Hello, my name is ${this.fullName}.
     I'll be ${this.age + 1} years old next month.`;
-
+  countriesList$: Observable<country[]>;
+  countriesList: country[];
   constructor(
     private _eventEmitterService: EventEmitterService,
     private httpclient: HttpClient
   ) {}
   ngOnInit() {
+
+
+
+    
+    const myObs = new Observable((observer) =>{
+      observer.next("one")
+      observer.next("Two")
+    })
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+    // Create simple observable that emits three values
+    const myObservable = of(1, 2, 3);
+    this.countriesList$ = this.getCountriesList();
+
+this.getCountriesList().subscribe((result: country[]) => {
+  this.countriesList = result;
+});
+
+    // Create observer object
+    const myObserver = {
+      next: (x) => {
+        console.log("Observer got a next value: " + x);
+        // alert("alert :)");
+      },
+      error: (err) => console.error("Observer got an error: " + err),
+      complete: () => console.log("Observer got a complete notification"),
+    };
+
+    // Execute with the observer object
+    myObservable.subscribe(myObserver);
+
     let obs = Observable.create((observer: any) => {
+      debugger;
+      //  observer.error("Sorry");
       observer.next("first");
-     // observer.complete("Completed");
-       observer.error("Sorry");
-      observer.next(1);
+      //observer.next(1);
+      // setTimeout(() => {
+      //   debugger
+      //   observer.next("inside settimeout");
+      // }, 5000);
       observer.next(true);
-      observer.next(null);
+      observer.complete("Completed");
     });
-
-    obs.subscribe(
-    function (observer: any)  {
-        debugger;
-        console.log(observer);
-      },
-     function (issue)  {
-        alert("Error" + issue);
-      },
-      function () {
-        alert("Done!");
-      },
-
-    );
 
     let obs2 = Observable.create(function annonymusFunction(observer: any) {
       observer.next("Hello Worldd!");
@@ -70,13 +101,17 @@ export class FirstComponent {
     alert("I am method of " + name + " Component.");
   }
 
-  getCountriesList(): Observable<country[]> {
+  getCountriesList2(): Observable<country[]> {
     return this.httpclient
       .get<country[]>("assets/json/countries.json", { observe: "response" })
       .pipe(
         tap((response) => console.log(response)),
         map((response) => response.body)
       );
+  }
+
+  getCountriesList(): Observable<country[]> {
+    return this.httpclient.get<country[]>("assets/json/countries.json");
   }
 
   getdata(data) {

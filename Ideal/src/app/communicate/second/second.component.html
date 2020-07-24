@@ -1,2 +1,16 @@
-<p>second works!</p>
-<button (click)="emitEventToCallFirstComponentMethod('khan')">Call First Component Method</button>
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+         <h2 id="header" (click)="myclick()" >i am Header</h2>
+      </div>
+   </div>
+</div>
+
+<div class="container">
+   <div class="row">
+      <div class="col-md-12">
+      </div>
+   </div>
+</div>
+
+<button [disabled]="false && true" class="btn btn-primary">save</button>

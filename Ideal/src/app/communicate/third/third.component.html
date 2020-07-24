@@ -1,3 +1,40 @@
 <p>third works! Receive msg</p>
 
 
+
+<div #my (onclick)="onClick(my)" style="background-color: aqua;">
+   how are you doing
+</div>
+
+
+<input type="text" id="fname">
+
+<br>
+
+<div>
+
+   <h1>gooooo</h1>
+
+</div>
+<br>
+<details (toggle)="myfunc()">
+   <summary>Copyright 1999-2014.</summary>
+   <p> - by Refsnes Data. All Rights Reserved.</p>
+   <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
+</details> <br>
+
+<input    (ngModelChange)="myfunc3($event)"   [(ngModel)]="volume"    type="text" name="" id="">
+<br>
+
+<select (ngModelChange)="myfunc4($event)"  [(ngModel)]="country">
+   <option>a</option>
+   <option>b</option>
+</select> <br>
+
+
+<input (ngModelChange)="myfunc5($event)"  [(ngModel)]="gend" type="radio" id="male" name="gender" value="male">
+<label for="male">Male</label><br>
+<input (ngModelChange)="myfunc5($event)" [(ngModel)]="gend"  type="radio" id="female" name="gender" value="female">
+<label for="female">Female</label><br>
+<input (ngModelChange)="myfunc5($event)" [(ngModel)]="gend"  type="radio" id="other" name="gender" value="other">
+<label for="other">Other</label>
