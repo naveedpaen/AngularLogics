@@ -1,0 +1,29 @@
+.green {
+ color: green;
+ text-decoration:underline;
+}
+
+
+#green {
+ color: green;
+}
+
+/* span {
+ color: blue;
+} */
+
+.pink {
+ color: pink;
+}
+
+p::spelling-error{
+ color: aqua;
+}
+
+span , h3 {
+ color: crimson;
+}
+
+div span {
+ color: cadetblue;
+}

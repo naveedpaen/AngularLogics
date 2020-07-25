@@ -1,0 +1,23 @@
+{
+  "countries": [
+    { "id": 1, "name": "Pakistan" },
+    { "id": 2, "name": "UAE" },
+    { "id": 3, "name": "Afghanistan" },
+    { "id": 4, "name": "Turkey" },
+    { "id": 4, "name": "Syria" }
+  ],
+  "cities": [
+    { "id": 1, "name": "Islamabad" },
+     { "id": 1, "name": "Islamabad" }, { "id": 2, "name": "karachi" },
+    { "id": 3, "name": "Quetta" },
+    { "id": 4, "name": "Dubai" },
+    { "id": 5, "name": "Istanbul" },
+    { "id": 6, "name": "alain" }
+  ], 
+  "Testing": [1, "Naveed", true, null,   { "Expnseid": 1, "july": 200 }],
+  "addd":{"id":100},
+  "Name": "Naveed", 
+  "isDeleted": true,
+  "phone":33366336,
+  "Address" : null
+}

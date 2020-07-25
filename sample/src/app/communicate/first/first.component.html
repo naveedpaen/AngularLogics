@@ -1,0 +1,12 @@
+<p>first works!</p>
+
+<input #login placeholder="Name">
+<button (click)="getdata(login.value)">Get Name</button>
+
+<div *ngFor="let u of countriesList$ | async">
+      {{u.name}}
+</div>
+
+<div *ngFor="let u of countriesList">
+   {{u.name}}
+</div>
