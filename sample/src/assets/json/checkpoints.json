@@ -1,0 +1,502 @@
+{
+   "result": {
+       "orderLineCheckpointStatusID": 405,
+       "checkpointID": 6,
+       "checkpoint": {
+           "checkpointId": 6,
+           "schemeCheckpointId": 0,
+           "name": "Delivery confirmed"
+       },
+       "orderLineID": 4,
+       "workflowIndex": 6,
+       "responsibleSupplierID": null,
+       "days": 4,
+       "originalDays": 4,
+       "quantity": 100.00,
+       "dueOn": "2020-05-03T00:00:00",
+       "isConfirmed": false,
+       "confirmedOn": null,
+       "confirmedByUserId": null,
+       "confirmedByUser": null,
+       "confirmingCommentID": 22,
+       "confirmingComment": {
+           "commentText": "<p>fine</p>",
+           "commentPrivacy": 1,
+           "commentUrgency": 1,
+           "commentedOn": "2020-07-24T15:16:17.4109815",
+           "commentBy": {
+               "roles": "CCP, MCP",
+               "name": "Peter HP Woehrle"
+           }
+       },
+       "subConfirmationStatuses": [
+           {
+               "subConfirmationStatusID": 40560,
+               "subConfirmationID": 60,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": false,
+               "confirmedOn": null,
+               "confirmedByUserId": null,
+               "confirmedByUser": null,
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [],
+               "subConfirmation": {
+                   "subConfirmationID": 60,
+                   "checkpointID": 6,
+                   "subConfirmationType": 1,
+                   "relevanceLevel": 2,
+                   "mandatory": true,
+                   "sortOrder": 1,
+                   "unitOfNumber": null,
+                   "documentTypeID": null,
+                   "documentType": null,
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 600,
+                       "subConfirmationID": 60,
+                       "language": "en",
+                       "name": "Container reference number",
+                       "description": "Please provide the number of the container in which goods have been loaded."
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": []
+               }
+           },
+           {
+               "subConfirmationStatusID": 40561,
+               "subConfirmationID": 61,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": false,
+               "confirmedOn": null,
+               "confirmedByUserId": null,
+               "confirmedByUser": null,
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [],
+               "subConfirmation": {
+                   "subConfirmationID": 61,
+                   "checkpointID": 6,
+                   "subConfirmationType": 6,
+                   "relevanceLevel": 2,
+                   "mandatory": false,
+                   "sortOrder": 2,
+                   "unitOfNumber": null,
+                   "documentTypeID": null,
+                   "documentType": null,
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 610,
+                       "subConfirmationID": 61,
+                       "language": "en",
+                       "name": "Quality Problems",
+                       "description": "Were there quality problem in the production?"
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": [
+                       {
+                           "subConfirmationOptionsValueID": 610,
+                           "subConfirmationID": 61,
+                           "key": 1,
+                           "subConfirmationOptionsValueDescription": {
+                               "subConfirmationOptionsValueDescriptionID": 6100,
+                               "subConfirmationOptionsValueID": 610,
+                               "language": "en",
+                               "value": "Yes"
+                           },
+                           "subConfirmationOptionsValueDescriptions": null
+                       },
+                       {
+                           "subConfirmationOptionsValueID": 611,
+                           "subConfirmationID": 61,
+                           "key": 2,
+                           "subConfirmationOptionsValueDescription": {
+                               "subConfirmationOptionsValueDescriptionID": 6110,
+                               "subConfirmationOptionsValueID": 611,
+                               "language": "en",
+                               "value": "No"
+                           },
+                           "subConfirmationOptionsValueDescriptions": null
+                       }
+                   ]
+               }
+           },
+           {
+               "subConfirmationStatusID": 40562,
+               "subConfirmationID": 62,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": true,
+               "confirmedOn": "2020-07-26T09:45:46.3306833",
+               "confirmedByUserId": 4,
+               "confirmedByUser": {
+                   "userId": 4,
+                   "firstName": "Peter",
+                   "lastName": "HP Woehrle",
+                   "name": "Peter HP Woehrle",
+                   "email": "peter-spo@starkling.de",
+                   "companyName": "HP Computers Germany GmbH",
+                   "roles": "CCP, MCP"
+               },
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [
+                   {
+                       "subConfirmationDocumentStatusID": 100231,
+                       "subConfirmationStatusID": 40562,
+                       "documentID": 20,
+                       "document": {
+                           "documentID": 20,
+                           "name": "flower.jpg",
+                           "privacy": 1,
+                           "uploadedOn": "2020-07-24T15:17:52.2764844",
+                           "roles": "CCP, MCP",
+                           "uploadedBy": "Peter HP Woehrle",
+                           "documentType": "Photo of Shipping Container"
+                       }
+                   },
+                   {
+                       "subConfirmationDocumentStatusID": 100232,
+                       "subConfirmationStatusID": 40562,
+                       "documentID": 21,
+                       "document": {
+                           "documentID": 21,
+                           "name": "flower2.jpg",
+                           "privacy": 1,
+                           "uploadedOn": "2020-07-24T15:17:52.3042157",
+                           "roles": "CCP, MCP",
+                           "uploadedBy": "Peter HP Woehrle",
+                           "documentType": "Photo of Shipping Container"
+                       }
+                   },
+                   {
+                       "subConfirmationDocumentStatusID": 100233,
+                       "subConfirmationStatusID": 40562,
+                       "documentID": 22,
+                       "document": {
+                           "documentID": 22,
+                           "name": "Garden.jpeg",
+                           "privacy": 1,
+                           "uploadedOn": "2020-07-26T09:45:46.2616575",
+                           "roles": "CCP, MCP",
+                           "uploadedBy": "Peter HP Woehrle",
+                           "documentType": "Photo of Shipping Container"
+                       }
+                   },
+                   {
+                       "subConfirmationDocumentStatusID": 100234,
+                       "subConfirmationStatusID": 40562,
+                       "documentID": 23,
+                       "document": {
+                           "documentID": 23,
+                           "name": "Sun.png",
+                           "privacy": 1,
+                           "uploadedOn": "2020-07-26T09:45:46.3299844",
+                           "roles": "CCP, MCP",
+                           "uploadedBy": "Peter HP Woehrle",
+                           "documentType": "Photo of Shipping Container"
+                       }
+                   }
+               ],
+               "subConfirmation": {
+                   "subConfirmationID": 62,
+                   "checkpointID": 6,
+                   "subConfirmationType": 7,
+                   "relevanceLevel": 3,
+                   "mandatory": false,
+                   "sortOrder": 3,
+                   "unitOfNumber": null,
+                   "documentTypeID": 6,
+                   "documentType": {
+                       "documentTypeId": 6,
+                       "name": "Photo of Shipping Container",
+                       "documentTypeDescriptions": null
+                   },
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 620,
+                       "subConfirmationID": 62,
+                       "language": "en",
+                       "name": "Pictures of Shipping Container",
+                       "description": "Please upload multiple pictures of shipping container during and after loading up."
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": []
+               }
+           },
+           {
+               "subConfirmationStatusID": 40563,
+               "subConfirmationID": 63,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": false,
+               "confirmedOn": null,
+               "confirmedByUserId": null,
+               "confirmedByUser": null,
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [],
+               "subConfirmation": {
+                   "subConfirmationID": 63,
+                   "checkpointID": 6,
+                   "subConfirmationType": 3,
+                   "relevanceLevel": 3,
+                   "mandatory": true,
+                   "sortOrder": 4,
+                   "unitOfNumber": null,
+                   "documentTypeID": null,
+                   "documentType": null,
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 630,
+                       "subConfirmationID": 63,
+                       "language": "en",
+                       "name": "Shipment Date",
+                       "description": "Please specify the planned shipment date for the container."
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": []
+               }
+           },
+           {
+               "subConfirmationStatusID": 40564,
+               "subConfirmationID": 64,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": false,
+               "confirmedOn": null,
+               "confirmedByUserId": null,
+               "confirmedByUser": null,
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [],
+               "subConfirmation": {
+                   "subConfirmationID": 64,
+                   "checkpointID": 6,
+                   "subConfirmationType": 4,
+                   "relevanceLevel": 2,
+                   "mandatory": true,
+                   "sortOrder": 5,
+                   "unitOfNumber": null,
+                   "documentTypeID": null,
+                   "documentType": null,
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 640,
+                       "subConfirmationID": 64,
+                       "language": "en",
+                       "name": "Container Pickup Time",
+                       "description": "Please specify the actual pickup date & time for the container."
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": []
+               }
+           },
+           {
+               "subConfirmationStatusID": 40565,
+               "subConfirmationID": 65,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": true,
+               "confirmedOn": "2020-07-26T09:46:02.3450284",
+               "confirmedByUserId": 4,
+               "confirmedByUser": {
+                   "userId": 4,
+                   "firstName": "Peter",
+                   "lastName": "HP Woehrle",
+                   "name": "Peter HP Woehrle",
+                   "email": "peter-spo@starkling.de",
+                   "companyName": "HP Computers Germany GmbH",
+                   "roles": "CCP, MCP"
+               },
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [
+                   {
+                       "subConfirmationDocumentStatusID": 100235,
+                       "subConfirmationStatusID": 40565,
+                       "documentID": 24,
+                       "document": {
+                           "documentID": 24,
+                           "name": "ten1.jpg",
+                           "privacy": 1,
+                           "uploadedOn": "2020-07-26T09:46:02.2535552",
+                           "roles": "CCP, MCP",
+                           "uploadedBy": "Peter HP Woehrle",
+                           "documentType": "Photo of Shipping Container"
+                       }
+                   },
+                   {
+                       "subConfirmationDocumentStatusID": 100236,
+                       "subConfirmationStatusID": 40565,
+                       "documentID": 25,
+                       "document": {
+                           "documentID": 25,
+                           "name": "ten2.jpg",
+                           "privacy": 1,
+                           "uploadedOn": "2020-07-26T09:46:02.3082497",
+                           "roles": "CCP, MCP",
+                           "uploadedBy": "Peter HP Woehrle",
+                           "documentType": "Photo of Shipping Container"
+                       }
+                   },
+                   {
+                       "subConfirmationDocumentStatusID": 100237,
+                       "subConfirmationStatusID": 40565,
+                       "documentID": 26,
+                       "document": {
+                           "documentID": 26,
+                           "name": "ten3.jpg",
+                           "privacy": 1,
+                           "uploadedOn": "2020-07-26T09:46:02.3444852",
+                           "roles": "CCP, MCP",
+                           "uploadedBy": "Peter HP Woehrle",
+                           "documentType": "Photo of Shipping Container"
+                       }
+                   }
+               ],
+               "subConfirmation": {
+                   "subConfirmationID": 65,
+                   "checkpointID": 6,
+                   "subConfirmationType": 7,
+                   "relevanceLevel": 2,
+                   "mandatory": true,
+                   "sortOrder": 6,
+                   "unitOfNumber": null,
+                   "documentTypeID": 6,
+                   "documentType": {
+                       "documentTypeId": 6,
+                       "name": "Photo of Shipping Container",
+                       "documentTypeDescriptions": null
+                   },
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 650,
+                       "subConfirmationID": 65,
+                       "language": "en",
+                       "name": "Bill of Lading",
+                       "description": "Please upload the bill of lading for the shipment. Multiple documents/images are allowed."
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": []
+               }
+           },
+           {
+               "subConfirmationStatusID": 40566,
+               "subConfirmationID": 66,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": false,
+               "confirmedOn": null,
+               "confirmedByUserId": null,
+               "confirmedByUser": null,
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [],
+               "subConfirmation": {
+                   "subConfirmationID": 66,
+                   "checkpointID": 6,
+                   "subConfirmationType": 2,
+                   "relevanceLevel": 2,
+                   "mandatory": false,
+                   "sortOrder": 7,
+                   "unitOfNumber": "%",
+                   "documentTypeID": null,
+                   "documentType": null,
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 660,
+                       "subConfirmationID": 66,
+                       "language": "en",
+                       "name": "Defective Items",
+                       "description": "How many percent items were rejected in first inspection?"
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": []
+               }
+           },
+           {
+               "subConfirmationStatusID": 40567,
+               "subConfirmationID": 67,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": false,
+               "confirmedOn": null,
+               "confirmedByUserId": null,
+               "confirmedByUser": null,
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [],
+               "subConfirmation": {
+                   "subConfirmationID": 67,
+                   "checkpointID": 6,
+                   "subConfirmationType": 5,
+                   "relevanceLevel": 2,
+                   "mandatory": false,
+                   "sortOrder": 8,
+                   "unitOfNumber": null,
+                   "documentTypeID": null,
+                   "documentType": null,
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 670,
+                       "subConfirmationID": 67,
+                       "language": "en",
+                       "name": "Link to Customs Office",
+                       "description": "Please provide URL of the customs office handling your export customs?"
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": []
+               }
+           },
+           {
+               "subConfirmationStatusID": 40568,
+               "subConfirmationID": 68,
+               "orderCheckpointStatusID": null,
+               "orderLineCheckpointStatusID": 405,
+               "isConfirmed": false,
+               "confirmedOn": null,
+               "confirmedByUserId": null,
+               "confirmedByUser": null,
+               "textualValue": null,
+               "numericalValue": null,
+               "dateTimeValue": null,
+               "optionsKeyValue": null,
+               "subConfirmationDocumentStatuses": [],
+               "subConfirmation": {
+                   "subConfirmationID": 68,
+                   "checkpointID": 6,
+                   "subConfirmationType": 9,
+                   "relevanceLevel": 2,
+                   "mandatory": false,
+                   "sortOrder": 9,
+                   "unitOfNumber": null,
+                   "documentTypeID": null,
+                   "documentType": null,
+                   "subConfirmationDescription": {
+                       "subConfirmationDescriptionID": 680,
+                       "subConfirmationID": 68,
+                       "language": "en",
+                       "name": "Other Details",
+                       "description": "Please provide other relevant details that can be useful for us?"
+                   },
+                   "subConfirmationDescriptions": null,
+                   "subConfirmationOptionsValues": []
+               }
+           }
+       ],
+       "isArchived": false
+   },
+   "statusCode": 200,
+   "message": "Success"
+}

@@ -1,7 +1,49 @@
 <div class="container">
    <div class="row">
       <div class="col-md-12">
-         <h6>Country 1</h6>
+
+         <div *ngFor="let parent of checks.subConfirmationStatuses; index as parentIndex;" class="row">
+
+
+            <div class="col-md-12">
+               <span>Index = {{parent}}</span>&nbsp; &nbsp;
+               <span>{{parent.subConfirmationStatusID}}</span> &nbsp; &nbsp;
+               <button class="btn btn-danger" (click)="deleteItem(parentIndex)">Delete</button>
+
+               <div *ngFor="let child of parent.subConfirmationDocumentStatuses; index as childIndex;" class="row">
+                  <div class="col-md-12">
+                     <h5 *ngIf="i===0">Images</h5>
+                     <span>{{child.document.name}}</span> <i (click)="deleteImage(parentIndex, childIndex)"
+                        class="fa fa-trash" aria-hidden="true"></i>
+                  </div>
+               </div>
+
+               <hr>
+            </div>
+
+
+
+         </div>
+
+
+
+
+         <div >
+            <span name="myspan" id="demo">good</span>
+            <span name="myspan" id="demo">fine</span>
+            <input id="de" type="text" value="pak" >
+         </div>
+         <button type="button" (click)="myFunction()">Try it</button>
+         <div>
+         </div>
+
+
+
+
+
+
+
+         <!-- <h6>Country 1</h6>
          <span *ngFor="let item of countriesList">
             {{item.name}} 
          </span>
@@ -16,8 +58,7 @@
          <h6>Country 3</h6>
          <span *ngFor="let item of country3">
             {{item.name}}
-         </span>
+         </span> -->
       </div>
    </div>
 </div>
-

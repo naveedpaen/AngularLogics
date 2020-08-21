@@ -1,40 +1,74 @@
-<p>third works! Receive msg</p>
+<!-- <form #f="ngForm"  (ngSubmit)= submitForm(f)>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Id</label>
+    <div class="col-sm-5">
+      <input required #stuId name="id" [ngModel]="studentObj?.id" type="text" class="form-control" placeholder="Id">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-5">
+      <input required #stuname name="name" [ngModel]="studentObj?.name" type="text" class="form-control" placeholder="Name">
+    </div>
+  </div> <br>
+
+  <button   class="btn btn-primary">save</button>
+</form> -->
 
 
 
-<div #my (onclick)="onClick(my)" style="background-color: aqua;">
-   how are you doing
+
+<form #f="ngForm" (ngSubmit)=submitForm(f)>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Id</label>
+    <div class="col-sm-5">
+      <input required #stuId="ngModel" name="id" ngModel type="text" class="form-control" placeholder="Id">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-5">
+      <input required #stuname="ngModel" name="name" ngModel type="text" class="form-control" placeholder="Name">
+    </div>
+  </div> <br>
+  <button   class="btn btn-primary">save</button>
+</form> <br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h3>ID</h3>
+      <p>ID Value : {{ stuId.value }}</p>
+      <p>is ID Valid: {{ stuId.valid }}</p>
+      <p>is ID Touched: {{ stuId.touched }}</p>
+      <p>is ID Dirty: {{ stuId.dirty }}</p>
+    </div>
+    <div class="col-md-3">
+      <h3>Name</h3>
+      <p>Name Value : {{ stuname.value }}</p>
+      <p>is Name valid : {{ stuname.valid }}</p>
+      <p>is Name touched : {{ stuname.touched }}</p>
+      <p>is Name Dirty : {{ stuname.dirty }}</p>
+    </div>
+    <div class="col-md-3">
+      <h3>Form</h3>
+      <p>Form value: {{ f.value | json }}</p>
+      <p>Form valid: {{ f.valid }}</p>
+      <p>Form Touched: {{ f.touched }}</p>
+      <p>Form Dirty: {{ f.dirty }}</p>
+    </div>
+  </div>
 </div>
 
 
-<input type="text" id="fname">
 
 <br>
 
-<div>
 
-   <h1>gooooo</h1>
+<!-- <input #phone type="text" value="kk" />
 
-</div>
 <br>
-<details (toggle)="myfunc()">
-   <summary>Copyright 1999-2014.</summary>
-   <p> - by Refsnes Data. All Rights Reserved.</p>
-   <p>All content and graphics on this web site are the property of the company Refsnes Data.</p>
-</details> <br>
-
-<input    (ngModelChange)="myfunc3($event)"   [(ngModel)]="volume"    type="text" name="" id="">
-<br>
-
-<select (ngModelChange)="myfunc4($event)"  [(ngModel)]="country">
-   <option>a</option>
-   <option>b</option>
-</select> <br>
-
-
-<input (ngModelChange)="myfunc5($event)"  [(ngModel)]="gend" type="radio" id="male" name="gender" value="male">
-<label for="male">Male</label><br>
-<input (ngModelChange)="myfunc5($event)" [(ngModel)]="gend"  type="radio" id="female" name="gender" value="female">
-<label for="female">Female</label><br>
-<input (ngModelChange)="myfunc5($event)" [(ngModel)]="gend"  type="radio" id="other" name="gender" value="other">
-<label for="other">Other</label>
+<button (click)="getdata(phone)">Get data</button>
+  -->
