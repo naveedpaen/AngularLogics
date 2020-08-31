@@ -1,43 +1,105 @@
+<!-- <form #f="ngForm" (ngSubmit)=submitForm(f.value)> 
+    <div class="form-group row">
+     <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+     <div class="col-sm-5">
+       <input   required #stuname="ngModel" ngModel name="name"     type="text" class="form-control" placeholder="Name">
+       <span *ngIf="stuname.invalid && stuname.touched" style="color: red;">Name is required!</span>
+     </div>
+   </div> <br>
+   <button [disabled]="!f.valid"   class="btn btn-primary">save</button>
+ </form> -->
 
-<form #f="ngForm" (ngSubmit)=submitForm()> 
-  <div class="form-group row">
+  <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-5">
+          <input [(ngModel)]=" user.name" type="text"  (ngModelChange)="checkNull()" #stuname="ngModel"  name="name"
+      pattern="(.*)[0-9]{1}[A-Za-z]{1}"       class="form-control"  placeholder="Name">
+
+        </div>
+
+        <div *ngIf="!stuname.valid"  style="color: red;" class="alert alert-danger">- at least 8 characters
+    - must contain at least 1 uppercase letter, 1 lowercase letter, and 1 number
+    - Can contain special characters</div>
+        </div> <br>
+
+      <button (click)="save()" [disabled]="disableSaveBtn" class="btn btn-primary">save</button>
+     
+
+
+    <!--best way of ngModel Without form element and Validation -->
+
+    <!-- <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Id</label>
     <div class="col-sm-5">
-      <input [(ngModel)]="user.id" required #stuId="ngModel" name="id"   type="text" class="form-control" placeholder="Id">
+      <input [(ngModel)]=" user.id" (ngModelChange)="checkNull()"
+      required #stuId="ngModel"
+      type="text" class="form-control" placeholder="Id">
+      <span *ngIf="!stuId.valid && stuId.touched"  style="color: red;">Id is required</span>
     </div>
   </div>
   <div class="form-group row">
     <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
     <div class="col-sm-5">
-      <input [(ngModel)]="user.name" required #stuname="ngModel" name="name"   type="text" class="form-control" placeholder="Name">
+      <input [(ngModel)]=" user.name" type="text"  (ngModelChange)="checkNull()"
+      required #stuname="ngModel" name="name"
+      class="form-control" placeholder="Name">
+      <span *ngIf="!stuname.valid && stuname.touched" style="color: red;">Name is required!</span>
     </div>
   </div> <br>
-  <button [disabled]="!f.valid"   class="btn btn-primary">save</button>
-</form> <br>
+  <button (click)="save()" [disabled]="disableSaveBtn" class="btn btn-primary">save</button>
+  <button (click)="cancel()"  class="btn btn-danger">cancel</button>
+ -->
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
+
+
+
+
+
+
+
+    <!-- <form #f="ngForm"  (ngSubmit)="submitForm()">
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Id</label>
+    <div class="col-sm-5">
+      <input [(ngModel)]="user && user.id" required #stuId="ngModel" name="id"   type="text" class="form-control" placeholder="Id">
+      <span *ngIf="!stuId.valid && stuId.touched" style="color: red;">Id is required</span>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-5">
+      <input [(ngModel)]="user && user.name" required #stuname="ngModel" name="name"   type="text" class="form-control" placeholder="Name">
+      <span *ngIf="!stuname.valid && stuname.touched" style="color: red;">Name is required!</span>
+    </div>
+  </div> <br>
+  <button  [disabled]="!f.valid"    class="btn btn-primary">save</button>
+</form> <br> -->
+
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-md-3">
       <h3>ID</h3>
       <p>ID Value : {{ stuId.value }}</p>
       <p>is ID Valid: {{ stuId.valid }}</p>
       <p>is ID Touched: {{ stuId.touched }}</p>
       <p>is ID Dirty: {{ stuId.dirty }}</p>
-    </div>
-    <div class="col-md-3">
-      <h3>Name</h3>
-      <p>Name Value : {{ stuname.value }}</p>
-      <p>is Name valid : {{ stuname.valid }}</p>
-      <p>is Name touched : {{ stuname.touched }}</p>
-      <p>is Name Dirty : {{ stuname.dirty }}</p>
-    </div>
-    <div class="col-md-3">
+      <p>is ID pristine: {{ stuId.pristine }}</p>
+    </div> -->
+        <div class="col-md-3">
+          <h3>Name</h3>
+          <p>Name Value : {{ stuname.value }}</p>
+          <p>Name inValue : {{ stuname.invalid }}</p>
+          <p>is Name valid : {{ stuname.valid }}</p>
+          <p>is Name touched : {{ stuname.touched }}</p>
+          <p>is Name Dirty : {{ stuname.dirty }}</p>
+          <p>is Name pristine : {{ stuname.pristine }}</p>
+        </div>
+        <!-- <div class="col-md-3">
       <h3>Form</h3>
       <p>Form value: {{ f.value | json }}</p>
       <p>Form valid: {{ f.valid }}</p>
       <p>Form Touched: {{ f.touched }}</p>
       <p>Form Dirty: {{ f.dirty }}</p>
+    </div> -->
+      </div>
     </div>
-  </div>
-</div>
-
