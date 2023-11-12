@@ -4,13 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveComponent } from './reactive/reactive/reactive.component';
-import { AddComponent } from './add/add.component';
-import { GroupComponent } from './group/group.component';
+import { ReactiveComponent } from './reactive-forms/reactive/reactive.component';
+import { AddComponent } from './reactive-forms/add/add.component';
+import { GroupComponent } from './reactive-forms/group/group.component';
 import {
   LogValueDirective,
   ValidationComponent,
-} from './validation/validation.component';
+} from './reactive-forms/validation/validation.component';
 import { StudentComponent } from './dynamic/student/student.component';
 import { BookComponent } from './dynamic/book/book.component';
 import { DynamicControlsComponent } from './dynamic/dynamic-controls/dynamic-controls.component';
