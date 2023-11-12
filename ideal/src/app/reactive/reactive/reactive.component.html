@@ -1,0 +1,70 @@
+<p>reactive works!</p>
+<!-- 
+<form [formGroup]="userFormFG" (submit)="onSave(userFormFG)">
+  <div class="container">
+    <div formArrayName="dynamicPart">
+      <div class="row" *ngFor="let item of getDynamicPartLists.controls; let index= index">
+        <div [formGroupName]="index">
+          <div class="col-md-6">
+            <label>First name:</label>
+            <input type="text" formControlName="name">
+          </div>
+
+          <div class="col-md-6">
+            <label>age:</label>
+            <input type="number" id="lname" name="age" formControlName="age">
+          </div>
+        </div>
+        <button (click)="removeItem(index)">remove item</button>
+      </div>
+    </div>
+  </div>
+  <button type="submit">save</button>
+</form>
+<button (click)="addRowMethod1()">add Method 1</button> <br>
+<button (click)="addRowMethod2()">add Method 2</button>
+<br> -->
+
+
+
+
+<!-- <label >country:</label><br>
+  <input type="text" id="lname" name="age" formControlName="country"><br><br>
+
+  <div formGroupName="address">
+    <label >city:</label><br>
+    <input type="text" id="lname" name="age" formControlName="city"><br><br>
+    <label >country:</label><br>
+    <input type="text" id="lname" name="age" formControlName="country"><br><br>
+  </div> -->
+
+<!-- <button [disabled]="!userForm.valid" type="submit">save</button> -->
+
+<!-- <p>Value: {{ userForm.controls['name'].value  }}</p>  -->
+<!-- <p>Value: {{ userFB.get('name')?.value | json}}</p>n -->
+
+
+<!-- second chase -->
+<!-- {{userFB.value.name }} // best one
+{{userFB.controls['name'].value}}
+{{userFB.get('name')?.value }}
+{{userFB.getRawValue().name }}
+{{userFB.get('address')?.get('city')?.value }} -->
+
+
+<!-- {{userFB.controls | json}} -->
+<hr>
+<form [formGroup]="userFB" (submit)="onSave(userFB)">
+  <div class="container">
+    <div class="col-md-6">
+      <label>First name:</label>
+      <input type="text" formControlName="name">
+    </div>
+
+    <div class="col-md-6">
+      <label>age:</label>
+      <input type="number" id="lname" name="age" formControlName="age">
+    </div>
+  </div>
+  <button type="submit">save</button>
+</form>

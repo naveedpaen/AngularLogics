@@ -1,0 +1,23 @@
+<button (click)="reset()">add</button>
+<form [formGroup]="studentsFG" (submit)="onSave(studentsFG)">
+  <div class="container">
+    <div class="row" formArrayName="studentsFA">
+      <div *ngFor="let item of studentsFA.controls; let index=index">
+        <div [formGroupName]="index">
+
+          <div class="col-md-6">
+            <label>First name:</label>
+            <input type="text" formControlName="name">
+          </div>
+
+          <div class="col-md-6">
+            <label>age:</label>
+            <input type="number" formControlName="age">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button type="submit">save</button>
+</form>

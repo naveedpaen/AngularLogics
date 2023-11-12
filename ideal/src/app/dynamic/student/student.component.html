@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let item of controlsJson" class="form-row">
+        <app-dynamic-controls [control]="item" [form]="form"></app-dynamic-controls>
+    </div>
+
+    <div class="form-row">
+        <button (click)="onAddClick()" type="button">Add</button>
+        <button (click)="onEditClick()" type="button">Edit</button>
+        <button type="submit">Save</button>
+        <!-- [disabled]="!form.valid" -->
+    </div>
+</form>

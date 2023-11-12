@@ -1,0 +1,56 @@
+<form [formGroup]="stuFG" (submit)="onSave(stuFG)">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <label>First name:</label>
+        <input type="text" formControlName="name">
+      </div>
+      <div class="col-md-6">
+        <label>age:</label>
+        <input type="number" formControlName="age">
+      </div>
+    </div>
+
+    <hr>
+    <label>Address:</label>
+    <div class="row">
+      <div class="col-md-6">
+        <div formGroupName="address">
+          <label>city : </label>
+          <input type="text" formControlName="city">
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <div class="row" formArrayName="courses">
+      <button (click)="addCourse()">Add</button>
+
+      <div *ngFor="let item of courses?.controls; let index=index">
+        <div [formGroupName]="index">
+
+          <div class="col-md-4">
+            <label>Course name:</label>
+            <input type="text" formControlName="courseName">
+          </div>
+
+          <div class="col-md-4">
+            <label>Tearcher Name:</label>
+            <input type="text" formControlName="teacherName">
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="submit">save</button>
+</form>
+
+<br><br>
+<button (click)="edit()">Edit</button>
+<button (click)="insert()">insert</button> <br><br>
+<button (click)="resetForm()">resetForm</button>
+<button (click)="setDefault()">setDefault</button>
+<button (click)="clearForm()">clear FormArray</button>
+
+{{stuFG.getRawValue() | json}}

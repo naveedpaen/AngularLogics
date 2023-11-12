@@ -1,0 +1,18 @@
+/* .ng-touched:not(form) {
+  border: 3px solid rgb(245, 43, 249);
+} */
+
+/* .ng-dirty.ng-valid:not(form) {
+  border: 2px solid green;
+}
+
+.ng-dirty.ng-invalid:not(form) {
+  border: 2px solid red;
+} */
+
+.invalid-feedback {
+  display: inline;
+}
+
+
+/* physical button */

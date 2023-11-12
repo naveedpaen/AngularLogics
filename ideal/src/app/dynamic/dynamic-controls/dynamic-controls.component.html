@@ -1,0 +1,30 @@
+<div [formGroup]="form">
+    <label for="">{{control.label}}</label>
+    <div [ngSwitch]="control.controlType">
+        <ng-container *ngSwitchCase="'textbox'">
+            <input [formControlName]="control.key" [type]="control.type" [id]="control.key">
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'select'">
+            <select [formControlName]="control.key" [id]="control.key">
+                <option *ngFor="let opt of control.options" [value]="opt.key">{{opt.value}}</option>
+            </select>
+        </ng-container>
+
+        <ng-container *ngSwitchCase="'radio'">
+            <label *ngFor="let option of control.options">
+                <input type="radio" [formControlName]="control.key" [value]="option.value" />
+                {{ option.key }}
+            </label>
+        </ng-container>
+
+
+        <ng-container *ngSwitchCase="'checkbox'">
+            <label *ngFor="let option of control.options">
+                <input type="checkbox" [formControlName]="control.key" />
+                {{ option.key }}
+            </label>
+        </ng-container>
+
+    </div>
+</div>

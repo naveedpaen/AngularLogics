@@ -1,0 +1,84 @@
+<h3>Sample Reactive Form </h3>
+
+<form [formGroup]="stuFG" (ngSubmit)="onSubmit(stuFG)">
+
+    <div class="row">
+        <!-- Name Field -->
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name" />
+        </div>
+
+        <!-- Father Name Field -->
+        <div class="col-md-6">
+            <label for="name" class="form-label">Father Name</label>
+            <input type="text" id="name" class="form-control" formControlName="fatherName" />
+            <div *ngIf="fatherName.dirty || fatherName.touched" class="invalid-feedback d-block">
+                <div *ngIf=" fatherName.errors?.['required']" class="text-danger">
+                    Name is required.</div>
+                <div *ngIf="stuFG.get('fatherName')?.hasError('leadingSpace')" class="text-danger">
+                    space is not allowed in the begining. </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Age Field -->
+    <div class="row">
+        <div class="col-md-6">
+            <label for="name" class="form-label">Age</label>
+            <input type="number" id="name" class="form-control" formControlName="age" />
+            <div *ngIf="(age.dirty || age.touched) && age.invalid " class="invalid-feedback d-block">
+                <div *ngIf="age.errors?.['min']" class="text-danger">
+                    Age should be at least 1.</div>
+                <div *ngIf="age.errors?.['max']" class="text-danger">
+                    Age should be less than or equal to 10.</div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Gender Field -->
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="gender">Gender: </label> &nbsp;
+            <div class="form-check form-check-inline">
+                <input type="radio" id="male" class="form-check-input" value="male" formControlName="gender" />
+                <label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input type="radio" id="female" class="form-check-input" value="female" formControlName="gender" />
+                <label for="female" class="form-check-label">Female</label>
+            </div>
+        </div>
+    </div> <br>
+
+    <!-- Sports Field -->
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group" formGroupName="sports">
+                <label class="form-check-label">Sports: </label> &nbsp;
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" formControlName="cricket" />
+                    <label class="form-check-label">Cricket</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" formControlName="football" />
+                    <label class="form-check-label">Football</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" formControlName="other" />
+                    <label class="form-check-label">Other</label>
+                </div>
+                <div class="text-danger"
+                    *ngIf=" (sports.dirty || sports.touched) && stuFG.get('sports')?.errors?.['atLeastOneOptionRequired']">
+                    Please select at least one sport.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button [disabled]="stuFG.invalid" class="btn btn-primary" type="submit">Save</button>
+
+</form>

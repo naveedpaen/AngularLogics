@@ -1,0 +1,201 @@
+<form [formGroup]="stuFG" (submit)="onSave(stuFG)">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" class="form-control" formControlName="name" />
+        <div *ngIf="name.dirty || name.touched" class="invalid-feedback d-block">
+          <div *ngIf=" name.errors?.['required']" class="text-danger">
+            Name is required.</div>
+          <div *ngIf="name.errors?.['leadingSpace']" class="text-danger">
+            space is not allowed in the begining. </div>
+          <div *ngIf="name.errors?.['asyncNoLeadingSpace']" class="text-danger">
+            async space is not allowed in the begining. </div>
+          <div *ngIf="name.errors?.['ZeroIsInvalid']" class="text-danger">
+            Start from a number greater than zero. </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <label for="name" class="form-label">Age</label>
+        <input type="text" id="name" class="form-control" formControlName="age" />
+        <div *ngIf="(age.dirty || age.touched) && age.invalid " class="invalid-feedback d-block">
+          <div *ngIf="age.errors?.['min']" class="text-danger">
+            Age should be at least 1.</div>
+          <div *ngIf="age.errors?.['max']" class="text-danger">
+            Age should be less than or equal to 18.</div>
+          <div *ngIf=" age.hasError('pattern')" class="text-danger">
+            Only numbers are allowed, decimal is not a valid value too.</div>
+          <div *ngIf=" age.hasError('minlength') && !age.hasError('required')" class="text-danger">
+            numbers should be at least 2 characters long.</div>
+          <div *ngIf="age.errors?.['invalidNumber']" class="text-danger">
+            Value has to be a number.</div>
+          <div *ngIf="age.errors?.['ZeroIsInvalid']" class="text-danger">
+            Start from a number greater than zero.</div>
+        </div>
+        <!-- <div *ngIf="(age.dirty || age.touched) && age.invalid  && age.errors. class=" text-danger">
+              Age should be at least 2 characters long. </div> -->
+      </div>
+    </div> <br>
+
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="gender">Gender: </label> &nbsp;
+          <div class="form-check form-check-inline">
+            <input type="radio" id="male" class="form-check-input" value="male" formControlName="gender" />
+            <label for="male" class="form-check-label">Male</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" id="female" class="form-check-input" value="female" formControlName="gender" />
+            <label for="female" class="form-check-label">Female</label>
+          </div>
+        </div>
+      </div> <br>
+
+      <div class="col-md-6">
+        <div class="form-group" formGroupName="sports">
+          <label class="form-check-label">Sports: </label> &nbsp;
+          <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input" formControlName="cricket" />
+            <label class="form-check-label">Cricket</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input" formControlName="football" />
+            <label class="form-check-label">Football</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input" formControlName="other" />
+            <label class="form-check-label">Other</label>
+          </div>
+          <div class="text-danger"
+            *ngIf=" (sports.dirty || sports.touched) && stuFG.get('sports')?.errors?.['atLeastOneOptionRequired']">
+            Please select at least one sport.
+          </div>
+        </div>
+      </div>
+    </div> <br>
+
+
+    <!-- address -->
+    <div class="row" formGroupName="address">
+      <div class="col-md-6">
+        <label for="validationServer04" class="form-label">State</label>
+        <select formControlName="country" class="form-select " id="validationServer04"
+          aria-describedby="validationServer04Feedback">
+          <option selected disabled value="">Select...</option>
+          <option>Pakistan</option>
+          <option>UAE</option>
+        </select>
+        <div *ngIf="stuFG.get('address.country')?.touched &&  stuFG.get('address.country')?.errors?.['required'] "
+          class="invalid-feedback">
+          Please provide country name
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="fathername" class="form-label">City</label>
+        <input formControlName="city" type="text" class="form-control" id="fathername"
+          placeholder="Enter your city name">
+        <div *ngIf="stuFG.get('address.city')?.dirty || stuFG.get('address.city')?.touched"
+          class="invalid-feedback d-block">
+          <div *ngIf="  stuFG.get('address.city')?.errors?.['required']" class="text-danger">
+            Please provide a city.</div>
+          <div *ngIf="city?.errors?.['asyncNoLeadingSpace']" class="text-danger">
+            space is not allowed in the begining.</div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+
+
+    <!-- Form Array example -->
+    <div class="row">
+      <div class="col-md-12">
+        <button (click)="addCourse()">Add</button>
+        <button (click)="insert()">insert</button>
+        <button (click)="clearForm()">clear FormArray</button>
+      </div>
+    </div>
+
+    <div formArrayName="courses">
+      <div class="row" *ngFor="let item of courses?.controls; let index=index">
+        <!-- in case of single control then index will be assigned to formControlName -->
+        <ng-container [formGroupName]="index">
+
+          <div class="col-md-4" style="padding-bottom: 3px;">
+            <label *ngIf="index == 0" class="form-label">Course</label>
+            <input formControlName="courseName" type="text" class="form-control">
+          </div>
+
+          <div class="col-md-4" style="padding-bottom: 3px;">
+            <label *ngIf="index == 0" class="form-label">Teacher</label>
+            <input formControlName="teacherName" type="text" class="form-control">
+          </div>
+
+        </ng-container>
+      </div>
+      <button [disabled]="!stuFG.valid" class="btn btn-primary" type="submit">save</button>
+    </div>
+  </div>
+
+</form>
+
+<br><br>
+<button (click)="createDefaultFG()">Add New | Set default</button>
+<button (click)="updateFG()">Update (old FG)</button>
+<button (click)="editFG()">Edit (new FG)</button>
+<button (click)="resetForm()">resetForm</button>
+
+
+{{stuFG.getRawValue() | json}} <br>
+<br>
+<hr>
+
+
+<b>Form Validation =</b>
+valid: {{ stuFG.valid}};
+invalid: {{stuFG.invalid}};
+touched: {{ stuFG.touched}};
+untouched: {{ stuFG.untouched}};
+pristine: {{stuFG.pristine}};
+status: {{ stuFG.status}};
+dirty: {{ stuFG.dirty}};
+errors: {{ stuFG.errors}}; <br><br>
+
+<b>Each Field status </b>
+<div *ngFor="let item of stuFG.controls | keyvalue; let index=index" [logValue]="item">
+  <b> {{ item.key }} </b>
+  valid: {{ item.value.valid }}
+  touched: {{ item.value.touched }}
+  untouched: {{ item.value.untouched }}
+  pristine: {{ item.value.pristine }}
+  status: {{ item.value.status }}
+  dirty: {{ item.value.dirty }}
+  errors: {{ item.value.errors | json}}
+</div>
+
+
+<!-- one option : {{ stuFG.get('sports')?.errors?.['atLeastOneOptionRequired'] | json }}
+<br>
+no LeadingSpace : {{stuFG.get('address')?.get('city')?.errors?.['leadingSpace'] | json }} -->
+
+<!-- <div class="invalid-feedback" *ngIf="city?.errors?.['leadingSpace']">Name cannot have leading space.</div> -->
+<div class="invalid-feedback" *ngIf="city?.errors?.['leadingSpace']">Name cannot have leading space.</div>
+
+errors : {{ name.errors?.['asyncNoLeadingSpace'] | json }}
+value : {{ name.errors?.['value'] | json }}
+
+<pre>{{ {id: 1, name: 'asif'} | json}}</pre>
+
+<pre style="font-family: Courier, monospace;">
+  This text will be displayed
+  in a monospace font.
+</pre>
+
+<span style="font-family: Courier, monospace;">
+  This text will be displayed
+  in a monospace font.
+</span>
