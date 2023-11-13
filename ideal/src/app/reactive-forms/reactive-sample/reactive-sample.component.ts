@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {
   AbstractControl,
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
@@ -20,7 +21,7 @@ import {
   styleUrls: ['./reactive-sample.component.css'],
 })
 export class ReactiveSampleComponent {
-  stuFG2: FormGroup = new FormGroup({
+  stuFG1 = new FormGroup({
     name: new FormControl(''),
     fatherName: new FormControl('', [
       Validators.required,
@@ -42,7 +43,7 @@ export class ReactiveSampleComponent {
     ),
   });
 
-  stuFG: FormGroup = this._fb.group({
+  stuFG2 = this._fb.group({
     name: '',
     fatherName: ['', Validators.required, synNoLeadingSpaceValidator],
     age: [0, Validators.min(1), Validators.max(10)],
@@ -53,6 +54,17 @@ export class ReactiveSampleComponent {
     ),
   });
 
+  stuFG3 = new FormGroup({
+    formControlName: new FormControl('value'),
+    name: new FormControl(''),
+    list: new FormArray([
+      new FormGroup({
+        formControlName1: new FormControl('first'),
+        formControlName2: new FormControl('second'),
+      }),
+    ]),
+  });
+
   constructor(private _fb: FormBuilder) {}
 
   onSubmit(form: FormGroup) {
@@ -60,17 +72,30 @@ export class ReactiveSampleComponent {
   }
 
   get sports(): FormGroup {
-    return this.stuFG.get('sports') as FormGroup;
+    return this.stuFG1.get('sports') as FormGroup;
   }
+
   get age() {
-    return this.stuFG.controls['age'];
+    return this.stuFG1.controls['age'];
   }
 
   get name(): AbstractControl {
-    return this.stuFG.controls['name'];
+    return this.stuFG1.controls['name'];
   }
 
   get fatherName(): AbstractControl {
-    return this.stuFG.controls['fatherName'];
+    return this.stuFG1.controls['fatherName'];
+  }
+
+  sports1(): FormControl {
+    return this.stuFG1.controls.name;
+  }
+
+  get name2(): FormControl {
+    return this.stuFG3.controls.name;
+  }
+
+  formControlName1(index: number): FormControl {
+    return this.stuFG3.controls.list.at(index).controls.formControlName1;
   }
 }

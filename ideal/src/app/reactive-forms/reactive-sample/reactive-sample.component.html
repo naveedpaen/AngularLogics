@@ -1,6 +1,6 @@
 <h3>Sample Reactive Form </h3>
 
-<form [formGroup]="stuFG" (ngSubmit)="onSubmit(stuFG)">
+<form [formGroup]="stuFG1" (ngSubmit)="onSubmit(stuFG1)">
 
     <div class="row">
         <!-- Name Field -->
@@ -16,7 +16,7 @@
             <div *ngIf="fatherName.dirty || fatherName.touched" class="invalid-feedback d-block">
                 <div *ngIf=" fatherName.errors?.['required']" class="text-danger">
                     Name is required.</div>
-                <div *ngIf="stuFG.get('fatherName')?.hasError('leadingSpace')" class="text-danger">
+                <div *ngIf="stuFG1.get('fatherName')?.hasError('leadingSpace')" class="text-danger">
                     space is not allowed in the begining. </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
                     <label class="form-check-label">Other</label>
                 </div>
                 <div class="text-danger"
-                    *ngIf=" (sports.dirty || sports.touched) && stuFG.get('sports')?.errors?.['atLeastOneOptionRequired']">
+                    *ngIf=" (sports.dirty || sports.touched) && stuFG1.get('sports')?.errors?.['atLeastOneOptionRequired']">
                     Please select at least one sport.
                 </div>
             </div>
@@ -79,6 +79,6 @@
     </div>
 
     <!-- Submit Button -->
-    <button [disabled]="stuFG.invalid" class="btn btn-primary" type="submit">Save</button>
+    <button [disabled]="stuFG1.invalid" class="btn btn-primary" type="submit">Save</button>
 
 </form>

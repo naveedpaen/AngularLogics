@@ -36,7 +36,7 @@ export class LogValueDirective implements OnInit {
   styleUrls: ['./validation.component.css'],
 })
 export class ValidationComponent {
-  public stuFG!: FormGroup;
+  stuFG!: FormGroup;
   //public loginform!: FormGroup;
 
   loginform = this._fb.group({
@@ -260,12 +260,86 @@ export class ValidationComponent {
     return this.stuFG.get('courses') as FormArray;
   }
 
+  getCourseFGFromIndex(index: number): FormGroup {
+    return this.courses.controls[index] as FormGroup;
+  }
+
+  getCourseFC(index: number): FormControl {
+    return this.getCourseFGFromIndex(index).controls[
+      'courseName'
+    ] as FormControl;
+  }
+
+  getCourseFC2(index: number): FormControl {
+    return this.getCourseFGFromIndex(index).get('courseName') as FormControl;
+  }
+
+  getCourseFC3(index: number): FormGroup {
+    return <FormGroup>(<FormArray>this.stuFG.get('courses')).controls[index];
+  }
+
+  getCourseFC5(index: string): FormControl {
+    return <FormControl>(
+      (<FormGroup>(<FormArray>this.stuFG.get('courses')).get(index)).get(
+        'courseName'
+      )
+    );
+  }
+
+  // -------------------  FormControl   ---------------------------------------------
+  // FormControl best 1
+  get city4(): FormControl {
+    return this.stuFG.get('address')?.get('city') as FormControl;
+  }
+
+  // FormControl best 2
+  get city(): FormControl {
+    return this.stuFG.get('address.city') as FormControl;
+  }
+
+  // FormControl best 3
+  get city6(): FormGroup {
+    return this.stuFG.get('address') as FormGroup;
+  }
+  get city7(): FormControl {
+    return this.city6.get('city') as FormControl;
+  }
+
+  //--------------------------------------------------------------
+
+  // -------------------  FormArray   ---------------------------------------------
+
+  // best 1. useful in html too. <input [formControlName]="formGroup.get('list').get('0')">
+  // https://stackoverflow.com/questions/40647073/angular-2-accessing-data-from-formarray
+  getCOurseFC7(index: string): FormControl {
+    return this.stuFG
+      .get('courses')
+      ?.get(index)
+      ?.get('courseName') as FormControl;
+  }
+
+  // best but not consistent
+  getCOurseFC8(index: string): FormControl {
+    return this.stuFG.get('courses.' + index)?.get('courseName') as FormControl;
+  }
+
+  // best 2
+  getCourseFC4(index: number): FormControl {
+    return <FormControl>(
+      (<FormGroup>(<FormArray>this.stuFG.get('courses')).controls[index]).get(
+        'courseName'
+      )
+    );
+  }
+
   get sports(): FormGroup {
     return this.stuFG.get('sports') as FormGroup;
   }
+  //--------------------------------------------------------------
 
-  get city(): AbstractControl | null {
-    return this.stuFG.get('address.city') as FormControl;
+  // FormControl best 4
+  get city5(): FormControl {
+    return this.stuFG.controls['address']?.get('city') as FormControl;
   }
 
   get city2(): AbstractControl {
