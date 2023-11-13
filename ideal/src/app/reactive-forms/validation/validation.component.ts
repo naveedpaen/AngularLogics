@@ -292,7 +292,7 @@ export class ValidationComponent {
     return this.stuFG.get('address')?.get('city') as FormControl;
   }
 
-  // FormControl best 2
+  // FormControl best 2 (not using consistantly)
   get city(): FormControl {
     return this.stuFG.get('address.city') as FormControl;
   }
@@ -305,16 +305,21 @@ export class ValidationComponent {
     return this.city6.get('city') as FormControl;
   }
 
+  // FormControl best 4
+  get city5(): FormControl {
+    return this.stuFG.controls['address']?.get('city') as FormControl;
+  }
+
   //--------------------------------------------------------------
 
   // -------------------  FormArray   ---------------------------------------------
 
-  // best 1. useful in html too. <input [formControlName]="formGroup.get('list').get('0')">
+  // best 1. useful in html too. <input [formControlName]="formGroup.get('list').get(String(0))">
   // https://stackoverflow.com/questions/40647073/angular-2-accessing-data-from-formarray
-  getCOurseFC7(index: string): FormControl {
+  getCOurseFC7(index: number): FormControl {
     return this.stuFG
       .get('courses')
-      ?.get(index)
+      ?.get(index.toString())
       ?.get('courseName') as FormControl;
   }
 
@@ -336,11 +341,6 @@ export class ValidationComponent {
     return this.stuFG.get('sports') as FormGroup;
   }
   //--------------------------------------------------------------
-
-  // FormControl best 4
-  get city5(): FormControl {
-    return this.stuFG.controls['address']?.get('city') as FormControl;
-  }
 
   get city2(): AbstractControl {
     return this.stuFG.get(['address', 'city']) as FormControl;
