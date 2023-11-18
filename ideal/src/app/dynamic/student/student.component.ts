@@ -60,10 +60,10 @@ export class StudentComponent {
 			formGroupName3: new FormGroup([new FormControl('value'), new FormControl('value2')]),
 
 			formGoupName0_fb: this._fb.group({}),
-			formGroupName1a_fb: this._fb.group({ controlName1: this._fb.control('value1'), controlName2: this._fb.control('value2') }),
-			formGroupName1b_fb: this._fb.group({ controlName1: 'value1', controlName2: 'value2' }),
-			formGroupName2_fb: this._fb.group({ ControlName: this._fb.control('value'), formGroupName: this._fb.group(this._fb.control('value')), formArrayName: this._fb.array([this._fb.group('value')]) }),
-			formGroupName3_fb: this._fb.group([this._fb.control('value'), this._fb.control('value2')]),
+			formGroupName1a_fb: this._fb.group({ controlName1: 'value1', controlName2: 'value2' }),
+			formGroupName1b_fb: this._fb.group({ controlName1: this._fb.control('value1'), controlName2: this._fb.control('value2') }),
+			formGroupName2_fb: this._fb.group({ ControlName: 'value1', formGroupName: this._fb.group('value'), formArrayName: this._fb.array([this._fb.group('value')]) }),
+			formGroupName3_fb: this._fb.group(['value1', 'value2']),
 
 			// FormArray
 			formArrayName1: new FormArray([]),
