@@ -57,14 +57,50 @@ export class AppComponent {
 		}
 	}
 
+	getValuesByKeys(keys: string[], obj: any): any {
+		const newObj: any = {};
+
+		keys.forEach(key => {
+			if (Object.hasOwn(obj, key)) {
+				newObj[key] = obj[key];
+			}
+		});
+
+		return newObj;
+	}
+
 	objects() {
 		debugger;
 
+		const obj1 = { a: 1 };
+		const obj2 = { b: 2 };
+		const obj3 = { c: 3 };
+		const mergedObject = Object.assign({ z: 26 }, obj1, obj2, obj3);
+
+		const keys: string[] = ['id', 'name'];
+		let obj: any = { id: 1, name: 'asif', class: 2 };
+		let newObj = this.getValuesByKeys(keys, obj);
+
+		Object.keys({ id: 1, name: 'khan' }).length;
+
+		Object.hasOwn;
+
+		// let newObj: any = {};
+		// keys.forEach(key => {
+		// 	if (obj1.hasOwnProperty(key)) {
+		// 		newObj[key] = obj1[key];
+		// 	}
+		// });
+
+		//let obj = { a: 'apple', b: 'banana', c: 'cherry' };
+
+		console.log(obj.hasOwnProperty('a')); // true
+		console.log(obj.hasOwnProperty('d')); // false
 		// Custom type
 		let stu1: { id?: number; name?: string } = {};
 		stu1 = { id: 1, name: 'asif' };
 
-		const keys = Object.keys({ id: 1, 123: 123, Name: 'asif', address: { country: 'Pakistan', city: 'Lahore' } });
+		const keys2 = Object.keys({ id: 1, 123: 123, Name: 'asif', address: { country: 'Pakistan', city: 'Lahore' } });
 
 		const abc = Object.keys([1, 2, 3]);
 
