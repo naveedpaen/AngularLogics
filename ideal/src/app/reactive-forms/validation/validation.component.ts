@@ -69,7 +69,7 @@ export class ValidationComponent {
 
 		this.stuFG = this._fb.group({
 			name: ['', Validators.required, this.asyncNoLeadingSpaceValidator, 'change'],
-			name2: ['abc', controlOptions],
+			name2: [''],
 			age: ['', [Validators.required, Validators.min(1), Validators.max(18), Validators.minLength(2), Validators.pattern('^[0-9]+$'), ZeroIsInvalidAtStartValidator, phoneNumberValidator]],
 			gender: ['male'],
 			sports: this._fb.group({ cricket: false, football: false, other: false }, { validators: this.atLeastOneOptionSelectedValidator }),
@@ -78,6 +78,10 @@ export class ValidationComponent {
 				city: ['', [Validators.required], [this.asyncNoLeadingSpaceValidator]]
 			}),
 			courses: this._fb.array([])
+		});
+
+		const userForm11 = new FormGroup({
+			name: new FormControl('', [Validators.required], [this.asyncNoLeadingSpaceValidator])
 		});
 	}
 
@@ -160,6 +164,16 @@ export class ValidationComponent {
 		}
 		return null;
 	};
+
+	presenceValidator() {
+		return (control: FormControl) => {
+			const value = control.value;
+			if (value === null || value === undefined || value === '') {
+				return { required: true };
+			}
+			return null;
+		};
+	}
 
 	asyncNoLeadingSpaceValidator(control: AbstractControl): Observable<ValidationErrors | null> {
 		const value = control.value;
@@ -292,6 +306,10 @@ export class ValidationComponent {
 		return this.stuFG.controls['name'];
 	}
 
+	get name2(): AbstractControl {
+		return this.stuFG.controls['name2'];
+	}
+
 	//  intellisense and nullish operator not needed in html.
 	get age() {
 		return this.stuFG.controls['age'];
@@ -304,41 +322,5 @@ export class ValidationComponent {
 
 	name3() {
 		return this.stuFG.get('name');
-	}
-	checkLength() {
-		debugger;
-		this.stuFG;
-		const obj1 = Object.keys(this.stuFG.controls).length;
-		const obj2 = (this.stuFG.get('courses') as FormArray).controls.length;
-		this.loopThroughControls(this.stuFG);
-		// formGroup key values
-		for (const [key, value] of Object.entries(this.stuFG.controls)) {
-			debugger;
-		}
-
-		// Form Array key values
-		const coursesArray = this.stuFG.get('courses') as FormArray;
-		this.loopThroughControls(coursesArray);
-		for (const courseControl of coursesArray.controls) {
-			if (courseControl instanceof FormGroup) {
-				for (const [key, control] of Object.entries(courseControl.controls)) {
-					console.log(`Course Control Key: ${key}, Value: ${control.value}`);
-				}
-			}
-		}
-	}
-
-	// loop through parent and child controls.
-	loopThroughControls(formGroup: FormGroup | FormArray): void {
-		Object.keys(formGroup.controls).forEach(controlName => {
-			const control = formGroup.get(controlName) as AbstractControl;
-			debugger;
-			if (control instanceof FormGroup || control instanceof FormArray) {
-				this.loopThroughControls(control);
-			} else {
-				console.log(`Control Name: ${controlName}, Value: ${control.value}`);
-				// Your logic for each control goes here
-			}
-		});
 	}
 }

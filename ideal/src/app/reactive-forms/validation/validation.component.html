@@ -17,6 +17,15 @@
       </div>
 
       <div class="col-md-6">
+        <label for="name" class="form-label">Name 2</label>
+        <input type="text" id="name2" class="form-control" formControlName="name2" />
+        <div *ngIf="name2.dirty || name2.touched" class="invalid-feedback d-block">
+          <div *ngIf=" name2.errors?.['required']" class="text-danger">
+            Name2 is required.</div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
         <label for="name" class="form-label">Age</label>
         <input type="text" id="name" class="form-control" formControlName="age" />
         <div *ngIf="(age.dirty || age.touched) && age.invalid " class="invalid-feedback d-block">
@@ -148,7 +157,8 @@
 <button (click)="updateFG()">Update (old FG)</button>
 <button (click)="editFG()">Edit (new FG)</button>
 <button (click)="resetForm()">resetForm</button>
-<button (click)="checkLength()">checkLenght</button>
+
+
 
 
 

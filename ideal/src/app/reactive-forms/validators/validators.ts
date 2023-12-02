@@ -17,6 +17,22 @@ export function reservedNameValidator(heroes: any[]): ValidatorFn {
 		return reserved ? { reservedName: true } : null;
 	};
 }
+export function requireValidator(control: AbstractControl) {
+	const value = control.value;
+	if (value === null || value === undefined || value === '') {
+		return { required: true };
+	}
+	return null;
+}
+export function requireValidator2() {
+	return (control: AbstractControl) => {
+		const value = control.value;
+		if (value === null || value === undefined || value === '') {
+			return { required: true };
+		}
+		return null;
+	};
+}
 
 export function asyncNoLeadingSpaceValidator(control: AbstractControl): Observable<ValidationErrors | null> {
 	const value = control.value;
@@ -39,10 +55,5 @@ export function atLeastOneOptionSelectedValidator(currentFormGroup: AbstractCont
 	const cricketSelected = currentFormGroup.get('cricket')?.value;
 	const footballSelected = currentFormGroup.get('football')?.value;
 	const otherSelected = currentFormGroup.get('other')?.value;
-
 	return cricketSelected || footballSelected || otherSelected ? null : { atLeastOneOptionRequired: true };
 }
-
-// <span class="help-block" *ngIf="heroDetails.
-// controls.name.hasError('reservedName')">Hero name is
-// already taken</span>
