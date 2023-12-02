@@ -305,4 +305,40 @@ export class ValidationComponent {
 	name3() {
 		return this.stuFG.get('name');
 	}
+	checkLength() {
+		debugger;
+		this.stuFG;
+		const obj1 = Object.keys(this.stuFG.controls).length;
+		const obj2 = (this.stuFG.get('courses') as FormArray).controls.length;
+		this.loopThroughControls(this.stuFG);
+		// formGroup key values
+		for (const [key, value] of Object.entries(this.stuFG.controls)) {
+			debugger;
+		}
+
+		// Form Array key values
+		const coursesArray = this.stuFG.get('courses') as FormArray;
+		this.loopThroughControls(coursesArray);
+		for (const courseControl of coursesArray.controls) {
+			if (courseControl instanceof FormGroup) {
+				for (const [key, control] of Object.entries(courseControl.controls)) {
+					console.log(`Course Control Key: ${key}, Value: ${control.value}`);
+				}
+			}
+		}
+	}
+
+	// loop through parent and child controls.
+	loopThroughControls(formGroup: FormGroup | FormArray): void {
+		Object.keys(formGroup.controls).forEach(controlName => {
+			const control = formGroup.get(controlName) as AbstractControl;
+			debugger;
+			if (control instanceof FormGroup || control instanceof FormArray) {
+				this.loopThroughControls(control);
+			} else {
+				console.log(`Control Name: ${controlName}, Value: ${control.value}`);
+				// Your logic for each control goes here
+			}
+		});
+	}
 }

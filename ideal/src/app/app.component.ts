@@ -30,15 +30,9 @@ export class AppComponent {
 	title = 'my-app';
 
 	constructor() {
-		// this.calculation();
+		const obj = { id: 1, name: 'asif' };
 
-		let obj = {
-			key1: 'value1', //scalar value
-			key2: function () {
-				console.log('functions');
-			},
-			key4: [1, 2, 3] //collection
-		};
+		this.logObjectProperties(obj);
 	}
 
 	async ngOnInit() {
@@ -48,6 +42,20 @@ export class AppComponent {
 		// source$.subscribe((res) => console.log(res));
 		// const finalNumber = await lastValueFrom(source$);
 		// console.log(`The final number is ${finalNumber}`);
+	}
+
+	logObjectProperties(obj: any, indent: string = ''): void {
+		for (const key in obj) {
+			if (obj.hasOwnProperty(key)) {
+				const value = obj[key];
+				if (typeof value === 'object' && value !== null) {
+					console.log(`${indent}${key}:`);
+					this.logObjectProperties(value, `${indent}  `);
+				} else {
+					console.log(`${indent}${key}: ${value}`);
+				}
+			}
+		}
 	}
 
 	calculation() {
@@ -70,8 +78,6 @@ export class AppComponent {
 	}
 
 	objects() {
-		debugger;
-
 		const obj1 = { a: 1 };
 		const obj2 = { b: 2 };
 		const obj3 = { c: 3 };

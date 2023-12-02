@@ -7,44 +7,49 @@ import { ValidationComponent } from './reactive-forms/validation/validation.comp
 import { StudentComponent } from './dynamic/student/student.component';
 import { StaticControlsComponent } from './dynamic/static-controls/static-controls.component';
 import { ReactiveSampleComponent } from './reactive-forms/reactive-sample/reactive-sample.component';
+import { ParentComponent } from './parent-child/parent/parent.component';
 
 const routes: Routes = [
-  {
-    path: 'react',
-    component: ReactiveComponent,
-  },
-  {
-    path: 'add',
-    component: AddComponent,
-  },
-  {
-    path: 'group',
-    component: GroupComponent,
-  },
-  {
-    path: 'valid',
-    component: ValidationComponent,
-  },
-  {
-    path: 'student',
-    component: StudentComponent,
-  },
-  {
-    path: 'student/:id',
-    component: StudentComponent,
-  },
-  {
-    path: 'static',
-    component: StaticControlsComponent,
-  },
-  {
-    path: 'sample',
-    component: ReactiveSampleComponent,
-  },
+	{
+		path: 'react',
+		component: ReactiveComponent
+	},
+	{
+		path: 'add',
+		component: AddComponent
+	},
+	{
+		path: 'group',
+		component: GroupComponent
+	},
+	{
+		path: 'valid',
+		component: ValidationComponent
+	},
+	{
+		path: 'student',
+		component: StudentComponent
+	},
+	{
+		path: 'student/:id',
+		component: StudentComponent
+	},
+	{
+		path: 'static',
+		component: StaticControlsComponent
+	},
+	{
+		path: 'sample',
+		component: ReactiveSampleComponent
+	},
+	{
+		path: 'parent',
+		component: ParentComponent
+	}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
 export class AppRoutingModule {}
