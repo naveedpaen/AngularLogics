@@ -62,27 +62,68 @@ export class ValidationComponent {
 	// set default or add new empty.
 	createDefaultFG() {
 		const controlOptions: AbstractControlOptions = {
-			validators: [Validators.required],
+			validators: [Validators.required, this.syncNoLeadingSpaceValidator],
 			asyncValidators: [this.asyncNoLeadingSpaceValidator],
 			updateOn: 'change'
 		};
 
-		this.stuFG = this._fb.group({
-			name: ['', Validators.required, this.asyncNoLeadingSpaceValidator, 'change'],
-			name2: [''],
-			age: ['', [Validators.required, Validators.min(1), Validators.max(18), Validators.minLength(2), Validators.pattern('^[0-9]+$'), ZeroIsInvalidAtStartValidator, phoneNumberValidator]],
-			gender: ['male'],
-			sports: this._fb.group({ cricket: false, football: false, other: false }, { validators: this.atLeastOneOptionSelectedValidator }),
-			address: this._fb.group({
-				country: ['', Validators.required],
-				city: ['', [Validators.required], [this.asyncNoLeadingSpaceValidator]]
+		// this.stuFG = this._fb.group({
+		// 	name: ['', Validators.required, this.syncNoLeadingSpaceValidator, 'change'],
+		// 	name2: ['', controlOptions],
+		// 	age: ['', [Validators.required, Validators.min(1), Validators.max(18), Validators.minLength(2), Validators.pattern('^[0-9]+$'), ZeroIsInvalidAtStartValidator, phoneNumberValidator]],
+		// 	gender: ['male'],
+		// 	sports: this._fb.group({ cricket: false, football: false, other: false }, { validators: this.atLeastOneOptionSelectedValidator }),
+		// 	address: this._fb.group({
+		// 		country: ['', Validators.required],
+		// 		city: ['', [Validators.required], [this.asyncNoLeadingSpaceValidator]]
+		// 	}),
+		// 	courses: this._fb.array([])
+		// });
+
+		// this.stuFG = new FormGroup({
+		// 	name: new FormControl('', Validators.required, this.syncNoLeadingSpaceValidator,  ),
+		// 	name2: new FormControl('', controlOptions),
+		// 	age: new FormControl('', [Validators.required, Validators.min(1), Validators.max(18), Validators.minLength(2), Validators.pattern('^[0-9]+$'), ZeroIsInvalidAtStartValidator, phoneNumberValidator]),
+		// 	gender: new FormControl('male'),
+		// 	sports: new FormGroup({ cricket: new FormControl(false), football: new FormControl(false), other: new FormControl(false) }, { validators: this.atLeastOneOptionSelectedValidator }),
+		// 	address: new FormGroup({
+		// 	  country: new FormControl('', Validators.required),
+		// 	  city: new FormControl('', [Validators.required], [this.asyncNoLeadingSpaceValidator])
+		// 	}),
+		// 	courses: new FormArray([])
+		//   });
+
+		this.stuFG = new FormGroup({
+			name: new FormControl('', [Validators.required, this.syncNoLeadingSpaceValidator], [this.asyncNoLeadingSpaceValidator]),
+			name2: new FormControl('', controlOptions),
+			age: new FormControl('', [
+				Validators.required,
+				Validators.min(1),
+				Validators.max(18),
+				Validators.minLength(2),
+				Validators.pattern('^[0-9]+$'),
+				ZeroIsInvalidAtStartValidator,
+				phoneNumberValidator
+			]),
+			gender: new FormControl('male'),
+			sports: new FormGroup(
+				{
+					cricket: new FormControl(false),
+					football: new FormControl(false),
+					other: new FormControl(false)
+				},
+				{ validators: this.atLeastOneOptionSelectedValidator }
+			),
+			address: new FormGroup({
+				country: new FormControl('', Validators.required),
+				city: new FormControl('', [Validators.required], [this.asyncNoLeadingSpaceValidator])
 			}),
 			courses: this._fb.array([])
 		});
 
-		const userForm11 = new FormGroup({
-			name: new FormControl('', [Validators.required], [this.asyncNoLeadingSpaceValidator])
-		});
+		// const userForm11 = new FormGroup({
+		// 	name: new FormControl('', [Validators.required], [this.asyncNoLeadingSpaceValidator])
+		// });
 	}
 
 	// doesnot changes the form structure (number of fields) or validation states.
@@ -322,5 +363,34 @@ export class ValidationComponent {
 
 	name3() {
 		return this.stuFG.get('name');
+	}
+
+	check() {
+		function classifyStudentPerformance(examScore: number, attendancePercentage: number, participationScore: number): string {
+			let performanceCategory: string;
+
+			switch (true) {
+				case examScore >= 90 && attendancePercentage >= 80 && participationScore >= 90:
+					performanceCategory = 'Excellent';
+					break;
+
+				case examScore >= 70 && attendancePercentage >= 70 && participationScore >= 70:
+					performanceCategory = 'Good';
+					break;
+
+				case examScore >= 50 && attendancePercentage >= 60 && participationScore >= 50:
+					performanceCategory = 'Satisfactory';
+					break;
+
+				default:
+					performanceCategory = 'Needs Improvement';
+			}
+
+			return performanceCategory;
+		}
+
+		// Example usage
+		const result = classifyStudentPerformance(85, 85, 88);
+		console.log(result); // Outputs: Excellent
 	}
 }
