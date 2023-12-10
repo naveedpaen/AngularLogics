@@ -14,9 +14,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 		</ng-template>
 
 		<!-- Dashboard Component Template -->
-		<!-- <div *ngFor="let widget of dashboardWidgets; let index = index">
+		<div *ngFor="let widget of dashboardWidgets; let index = index">
 			<ng-container *ngTemplateOutlet="widget?.template; context: { $implicit: widget.data, index: index }"></ng-container>
-		</div> -->
+		</div>
 
 		<!-- Dynamic Widget Templates -->
 		<ng-template #temperatureWidget let-data let-index="index">
@@ -56,11 +56,6 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class ChildComponent {
 	@Input() id: number = 0;
 	@Input() name: string = '';
-
-	dashboardWidgets = [
-		{ template: 'temperatureWidget', data: { temperature: 25 } },
-		{ template: 'stockWidget', data: { symbol: 'AAPL' } },
-		{ template: 'currencyWidget', data: { currencyCode: 'USD' } },
-		{ template: 'newsWidget', data: { headline: 'Breaking News!' } }
-	];
+	dashboardWidgets: any[] = [];
+	// dashboardWidgets object
 }

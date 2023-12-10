@@ -21,6 +21,14 @@ export type StudentVM5 = {
 	name?: string;
 };
 
+export type stuVM = {
+	id: number;
+	name: string;
+	title: string;
+	description: string;
+	age2?: number;
+};
+
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
@@ -30,12 +38,38 @@ export class AppComponent {
 	title = 'my-app';
 
 	constructor() {
-		const obj = { id: 1, name: 'asif' };
+		//const obj = { id: 1, name: 'asif' };
+		debugger;
+		let obj = { a: 'apple', b: 'banana', c: 'cherry', d: { e: { p: { r: 1 } } } };
+		const res2s = this.hasKeyAtAnyLevel(obj, 'r');
+		const res = this.checkNestedPropertyExist(obj, 'e');
 
-		this.logObjectProperties(obj);
+		const abc = 'e' in obj;
+		const f = Object.hasOwn(obj, 'e');
+		const d = obj.hasOwnProperty('e');
+
+		//this.logObjectProperties(obj);
+
+		interface OuterObject {
+			a: string;
+			b: {
+				c: number;
+				d: string;
+			};
+		}
 	}
 
+	studentsList = [
+		{ id: 1, name: 'Asif', title: 'Sindh', description: 'living in Karachi', age: 14 },
+		{ id: 2, name: 'Naveed Ullah', title: 'khan', description: 'living in lahore' },
+		{ id: 3, name: 'Ali', title: 'KPK', description: 'living in Peshawar' }
+	];
 	async ngOnInit() {
+		this.studentsList.forEach((x: stuVM) => {
+			if (x.age2 == 14) {
+			}
+		});
+
 		this.objects();
 		// debugger;
 		// const source$ = interval(1000).pipe(take(10));
@@ -58,6 +92,24 @@ export class AppComponent {
 		}
 	}
 
+	checkNestedPropertyExist(obj: any, indent: string = ''): boolean {
+		for (const key in obj) {
+			if (Object.hasOwn(obj, key)) {
+				const value = obj[key];
+				if (typeof value === 'object' && value !== null) {
+					console.log(`${indent}${key}:`);
+					this.checkNestedPropertyExist(value, `${indent}  `);
+					if (Object.hasOwn(value, indent)) {
+						return true;
+					}
+				} else {
+					console.log(`${indent}${key}: ${value}`);
+				}
+			}
+		}
+		return false;
+	}
+
 	calculation() {
 		const myNumber: number[] = [2, 3, 4, 5, 6];
 		for (let index = 1; index < myNumber.length; index = index + 2) {
@@ -75,6 +127,19 @@ export class AppComponent {
 		});
 
 		return newObj;
+	}
+
+	hasKeyAtAnyLevel(obj: Record<string, any>, keyToFind: string): boolean {
+		for (const key in obj) {
+			if (key === keyToFind) {
+				return true;
+			} else if (typeof obj[key] === 'object' && obj[key] !== null) {
+				if (this.hasKeyAtAnyLevel(obj[key], keyToFind)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	objects() {
