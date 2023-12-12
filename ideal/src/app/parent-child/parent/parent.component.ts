@@ -13,6 +13,9 @@ interface PersonTemplateContext {
 	template: `<p>parent works!</p>
 
 		<form [formGroup]="userForm" (submit)="onSave(userForm)">
+			<div>{{ userForm.getRawValue() | json }}</div>
+			<span>{{ userForm.get('name')?.value | json }}</span>
+			<button type="submit">save</button>
 			<label>First name:</label><br />
 
 			<div class="row">
@@ -22,7 +25,7 @@ interface PersonTemplateContext {
 				</div>
 			</div>
 
-			<app-child [age]="userForm.get('age')" [id]="1" [name]="'asif'"> </app-child>
+			<app-child [age]="ageControl"> </app-child>
 		</form>
 		<hr />
 
@@ -44,10 +47,15 @@ interface PersonTemplateContext {
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ParentComponent {
-	userForm: FormGroup = new FormGroup({
-		name: new FormControl(''),
-		age: new FormControl('')
-	});
+	userForm!: FormGroup;
+	ageControl!: FormControl;
+	ngOnInit() {
+		this.userForm = new FormGroup({
+			name: new FormControl(''),
+			age: new FormControl('')
+		});
+		this.ageControl = this.userForm.get('age') as FormControl;
+	}
 
 	people: any[] = [
 		{ name: 'Asif', age: 25 },
@@ -55,8 +63,9 @@ export class ParentComponent {
 	];
 
 	onSave(arg0: FormGroup<any>) {
-		const a = this.userForm.get('name');
-		const a3 = this.userForm.get('age');
+		debugger;
+		//const a = this.userForm.get('name');
+		//const a3 = this.userForm.get('age');
 		throw new Error('Method not implemented.');
 	}
 }
