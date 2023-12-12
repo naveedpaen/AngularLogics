@@ -56,7 +56,11 @@ export class StudentComponent {
 			// FormGroup
 			formGoupName0: new FormGroup({}),
 			formGroupName1: new FormGroup({ controlName1: new FormControl('value'), controlName2: new FormControl('value2') }),
-			formGroupName2: new FormGroup({ controlName: new FormControl('value'), formGroupName: new FormGroup({ controlName1: new FormControl('value') }), formArrayName: new FormArray([new FormControl('value')]) }),
+			formGroupName2: new FormGroup({
+				controlName: new FormControl('value'),
+				formGroupName: new FormGroup({ controlName1: new FormControl('value') }),
+				formArrayName: new FormArray([new FormControl('value')])
+			}),
 			formGroupName3: new FormGroup([new FormControl('value'), new FormControl('value2')]),
 
 			formGoupName0_fb: this._fb.group({}),
@@ -109,10 +113,9 @@ export class StudentComponent {
 	}
 
 	onEditClick() {
-		// step 1: get Controls Json from db.
-		// step 2: get db values and assign to controls json.
-		// step 3: create formcontrols with help of controls json.
-		// step 4: create html controls with help of controls json.
+		// step 1: get Controls (fields) Json from db which have default values.
+		// step 2: If Edit case then get db data and assign to controls json.
+		// step 3: create formcontrols with help of controls json and assign values which can be default values or Edit case values .
 		this._router.navigate(['../student/3']);
 	}
 
@@ -127,9 +130,10 @@ export class StudentComponent {
 
 	getControlsJson() {
 		this._dataService.getStudentControlsJson().subscribe(res => {
-			this.controlsJson = res;
+			this.controlsJson = res; // fields
 
 			if (this.studentId && this.studentData) {
+				// edit
 				this.controlsJson = this.updateControlValues(this.controlsJson, this.studentData);
 			}
 
