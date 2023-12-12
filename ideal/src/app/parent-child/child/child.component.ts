@@ -1,11 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
 	selector: 'app-child',
 	standalone: true,
 	imports: [CommonModule],
 	template: `<p>child works!</p>
+
+		<div class="col-md-6">
+			<label>age:</label><br />
+			<input type="number" id="lname" name="age" formControlName="age" /><br /><br />
+
+			<button type="submit">save</button>
+		</div>
+		<hr />
 		ID : {{ id }} Name : {{ name }}
 
 		<ng-template let-a let-id>
@@ -56,6 +65,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class ChildComponent {
 	@Input() id: number = 0;
 	@Input() name: string = '';
+	@Input() age!: FormControl | any;
 	dashboardWidgets: any[] = [];
 	// dashboardWidgets object
 }
