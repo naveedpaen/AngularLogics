@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ChildComponent } from '../child/child.component';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 interface PersonTemplateContext {
 	$implicit: any; // Assuming any for simplicity; replace with the actual type of your 'people' array elements
 	index: number;
@@ -52,7 +52,8 @@ export class ParentComponent {
 	ngOnInit() {
 		this.userForm = new FormGroup({
 			name: new FormControl(''),
-			age: new FormControl('')
+			age: new FormControl(''),
+			list: new FormArray([])
 		});
 		this.ageControl = this.userForm.get('age') as FormControl;
 	}

@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormArray, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
 	selector: 'app-child',
@@ -14,6 +14,8 @@ import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 			<input type="number" id="lname" name="age" [formControl]="age" /><br />
 		</div>
 		<hr />
+		List
+
 		<!-- ID : {{ id }} Name : {{ name }}
 
 		<ng-template let-a let-id>
@@ -65,6 +67,7 @@ export class ChildComponent {
 	@Input() id: number = 0;
 	@Input() name: string = '';
 	@Input() age!: FormControl | any;
+	@Input() list!: FormArray | any;
 	dashboardWidgets: any[] = [];
 	// dashboardWidgets object
 }
