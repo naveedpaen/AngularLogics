@@ -110,7 +110,7 @@
           class="invalid-feedback d-block">
           <div *ngIf="  stuFG.get('address.city')?.errors?.['required']" class="text-danger">
             Please provide a city.</div>
-          <div *ngIf="city?.errors?.['asyncNoLeadingSpace']" class="text-danger">
+          <div *ngIf="city2?.errors?.['asyncNoLeadingSpace']" class="text-danger">
             space is not allowed in the begining.</div>
         </div>
       </div>
@@ -157,6 +157,7 @@
 <button (click)="updateFG()">Update (old FG)</button>
 <button (click)="editFG()">Edit (new FG)</button>
 <button (click)="resetForm()">resetForm</button>
+<button (click)="test()">test</button>
 
 
 
@@ -196,7 +197,7 @@ errors: {{ stuFG.errors}}; <br><br>
 no LeadingSpace : {{stuFG.get('address')?.get('city')?.errors?.['leadingSpace'] | json }} -->
 
 <!-- <div class="invalid-feedback" *ngIf="city?.errors?.['leadingSpace']">Name cannot have leading space.</div> -->
-<div class="invalid-feedback" *ngIf="city?.errors?.['leadingSpace']">Name cannot have leading space.</div>
+<div class="invalid-feedback" *ngIf="city2?.errors?.['leadingSpace']">Name cannot have leading space.</div>
 
 errors : {{ name.errors?.['asyncNoLeadingSpace'] | json }}
 value : {{ name.errors?.['value'] | json }}

@@ -282,31 +282,65 @@ export class ValidationComponent {
 		return <FormControl>(<FormGroup>(<FormArray>this.stuFG.get('courses')).get(index)).get('courseName');
 	}
 
-	// -------------------  FormControl   ---------------------------------------------
-	// FormControl best 1
-	get city4(): FormControl {
-		return this.stuFG.get('address')?.get('city') as FormControl;
+	//--------   Hardcoded FormControl Name
+
+	// Method 1 Best
+	get city41(): FormControl {
+		return this.stuFG.get('address.city1') as FormControl;
 	}
 
-	// FormControl best 2 (not using consistantly)
-	get city(): FormControl {
-		return this.stuFG.get('address.city') as FormControl;
+	// Method 2
+	get city42(): FormControl {
+		return this.stuFG.get('address')?.get('city1') as FormControl;
 	}
 
-	// FormControl best 3
-	get city6(): FormGroup {
+	// Method 3
+	get address50(): FormGroup {
 		return this.stuFG.get('address') as FormGroup;
 	}
-	get city7(): FormControl {
-		return this.city6.get('city') as FormControl;
+	get city43(): FormControl {
+		return this.address50.get('city1') as FormControl;
 	}
 
-	// FormControl best 4
-	get city5(): FormControl {
-		return this.stuFG.controls['address']?.get('city') as FormControl;
+	// Method 4
+	city44(): FormControl | null {
+		const control = this.stuFG.get(`address.city1`) as FormControl;
+		return control instanceof FormControl ? control : null;
 	}
 
-	//--------------------------------------------------------------
+	//----  dynamic FormControl Name
+
+	// Method 1.  Best
+	city31(controlName: string): FormControl {
+		return this.stuFG.get(`address.${controlName}`) as FormControl;
+	}
+
+	// Method 2
+	city32(controlName: string): FormControl {
+		return this.stuFG.get('address')?.get(controlName) as FormControl;
+	}
+
+	// Method 3. via getter
+	//  this.city32['city'];
+	get city33(): { [key: string]: AbstractControl } {
+		return (this.stuFG.get('address') as FormGroup)?.controls;
+	}
+
+	// Method 4
+	get country(): FormGroup {
+		return this.stuFG.get('address') as FormGroup;
+	}
+	city34(controlName: string): FormControl {
+		return this.country.get(controlName) as FormControl;
+	}
+
+	// Method 5
+	city35(controlName: string): FormControl | null {
+		const control = this.stuFG.get(`address.${controlName}`) as FormControl;
+		return control instanceof FormControl ? control : null;
+	}
+
+	//----------------------------------------------------------------
 
 	// -------------------  FormArray   ---------------------------------------------
 
@@ -330,6 +364,58 @@ export class ValidationComponent {
 		return this.stuFG.get('sports') as FormGroup;
 	}
 	//--------------------------------------------------------------
+
+	get addressControls(): { [key: string]: AbstractControl } {
+		return (this.stuFG.get('address') as FormGroup)?.controls;
+	}
+
+	getAddressControls(formGroupName: string): { [key: string]: AbstractControl } {
+		return (this.stuFG.get(formGroupName) as FormGroup)?.controls;
+	}
+
+	// Example usage:
+
+	get city233(): FormControl {
+		return (this.stuFG.get('address') as FormGroup)?.get('city') as FormControl;
+	}
+
+	get cit441(): FormControl {
+		return (this.stuFG.controls['address'] as FormGroup).controls['city'] as FormControl;
+	}
+
+	get city21(): { [key: string]: AbstractControl } {
+		return (this.stuFG.get('address') as FormGroup)?.controls;
+	}
+
+	city20(key: string): FormControl {
+		return this.stuFG.get('address')?.get(key) as FormControl;
+	}
+
+	city22(key: string): FormControl {
+		return this.stuFG.get(`address.${key}`) as FormControl;
+	}
+
+	test() {
+		debugger;
+		this.stuFG;
+		const abc222 = this.city41;
+		const abc2222 = this.city42;
+		const abc2233 = this.city43;
+
+		const abc3 = this.city20('city');
+		const abc2 = this.city21['city'];
+		const abc32 = this.city22('city');
+
+		const aaa2 = this.stuFG.get('address');
+		const abc = (this.stuFG.get('address') as FormGroup).controls;
+
+		const def = this.getAddressControls('address')['country'];
+
+		const aaa = this.stuFG.get('address')?.get('country');
+
+		const countryControl = this.addressControls['country'];
+		const cityControl = this.addressControls['city'];
+	}
 
 	get city2(): AbstractControl {
 		return this.stuFG.get(['address', 'city']) as FormControl;
