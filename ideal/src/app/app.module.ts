@@ -7,33 +7,32 @@ import { AppComponent } from './app.component';
 import { ReactiveComponent } from './reactive-forms/reactive/reactive.component';
 import { AddComponent } from './reactive-forms/add/add.component';
 import { GroupComponent } from './reactive-forms/group/group.component';
-import {
-  LogValueDirective,
-  ValidationComponent,
-} from './reactive-forms/validation/validation.component';
+import { LogValueDirective, ValidationComponent } from './reactive-forms/validation/validation.component';
 import { StudentComponent } from './dynamic/student/student.component';
 import { BookComponent } from './dynamic/book/book.component';
 import { DynamicControlsComponent } from './dynamic/dynamic-controls/dynamic-controls.component';
 import { JsonPipe } from '@angular/common';
 import { StaticControlsComponent } from './dynamic/static-controls/static-controls.component';
 import { ReactiveSampleComponent } from './reactive-forms/reactive-sample/reactive-sample.component';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ReactiveComponent,
-    AddComponent,
-    GroupComponent,
-    ValidationComponent,
-    LogValueDirective,
-    StudentComponent,
-    BookComponent,
-    DynamicControlsComponent,
-    StaticControlsComponent,
-    ReactiveSampleComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [{ provide: JsonPipe }],
-  bootstrap: [AppComponent],
+	declarations: [
+		AppComponent,
+		ReactiveComponent,
+		AddComponent,
+		GroupComponent,
+		ValidationComponent,
+		LogValueDirective,
+		StudentComponent,
+		BookComponent,
+		DynamicControlsComponent,
+		StaticControlsComponent,
+		ReactiveSampleComponent,
+		HeaderComponent
+	],
+	imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+	providers: [{ provide: JsonPipe }],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}
