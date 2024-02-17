@@ -39,7 +39,6 @@ export class AppComponent {
 
 	constructor() {
 		//const obj = { id: 1, name: 'asif' };
-		debugger;
 		let obj = { a: 'apple', b: 'banana', c: 'cherry', d: { e: { p: { r: 1 } } } };
 		const res2s = this.hasKeyAtAnyLevel(obj, 'r');
 		const res = this.checkNestedPropertyExist(obj, 'e');

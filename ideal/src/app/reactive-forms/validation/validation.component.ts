@@ -190,7 +190,6 @@ export class ValidationComponent {
 	}
 
 	atLeastOneOptionSelectedValidator: ValidatorFn = (currentFormGroup: AbstractControl): { [key: string]: any } | null => {
-		debugger;
 		const cricketSelected = currentFormGroup.get('cricket')?.value;
 		const footballSelected = currentFormGroup.get('football')?.value;
 		const otherSelected = currentFormGroup.get('other')?.value;
@@ -218,7 +217,6 @@ export class ValidationComponent {
 
 	asyncNoLeadingSpaceValidator(control: AbstractControl): Observable<ValidationErrors | null> {
 		const value = control.value;
-		debugger;
 		if (typeof value === 'string' && value.trim() !== value) {
 			return of({ asyncNoLeadingSpace: true, value: value });
 		}
