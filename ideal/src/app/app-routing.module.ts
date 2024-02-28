@@ -7,7 +7,8 @@ import { ValidationComponent } from './reactive-forms/validation/validation.comp
 import { StudentComponent } from './dynamic/student/student.component';
 import { StaticControlsComponent } from './dynamic/static-controls/static-controls.component';
 import { ReactiveSampleComponent } from './reactive-forms/reactive-sample/reactive-sample.component';
-import { ParentComponent } from './parent-child/parent/parent.component';
+import { TestComponent } from './test/test.component';
+import { Parent1Component } from './parent-child/parent1/parent1.component';
 
 const routes: Routes = [
 	{
@@ -44,7 +45,11 @@ const routes: Routes = [
 	},
 	{
 		path: 'parent',
-		component: ParentComponent
+		component: Parent1Component
+	},
+	{
+		path: 'test',
+		component: TestComponent
 	}
 ];
 

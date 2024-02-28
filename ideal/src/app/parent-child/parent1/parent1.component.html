@@ -1,0 +1,38 @@
+<p>parent works!</p>
+Parent counter = {{ parentCounter }}
+{{ myObj | json }}
+
+<button (click)="addAge()">age increase</button>
+<button (click)="addCounter()">Increase counter</button>
+
+<form [formGroup]="userForm" (submit)="onSave(userForm)">
+    <div>{{ userForm.getRawValue() | json }}</div>
+    <span>{{ userForm.get('name')?.value | json }}</span>
+    <button type="submit">save</button>
+    <label>First name:</label><br />
+
+    <div class="row">
+        <div class="col-md-6">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" id="name" class="form-control" formControlName="name" />
+        </div>
+    </div>
+</form>
+<app-child1 [counter]="counter" [myObj]="myObj" [age]="myAge"> </app-child1>
+<hr />
+
+<div *ngFor="let person of people; let i = index">
+    <ng-container
+        *ngTemplateOutlet="personTemplate; context: { $implicit: person, mobileNo: '0303', index: i }"></ng-container>
+</div>
+
+<ng-template #personTemplate let-implicit let-phone="mobileNo" let-index="index" let-implicit2>
+    <div>
+        <p>phone {{ phone }}</p>
+        <p>index {{ index }}</p>
+        <p>Name: {{ implicit2.name }}</p>
+        <p>Age: {{ implicit2.age }}</p>
+    </div>
+</ng-template>
+
+<hr />
