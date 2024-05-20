@@ -38,24 +38,39 @@ export class AppComponent {
 	title = 'my-app';
 
 	constructor() {
-		//const obj = { id: 1, name: 'asif' };
-		let obj = { a: 'apple', b: 'banana', c: 'cherry', d: { e: { p: { r: 1 } } } };
-		const res2s = this.hasKeyAtAnyLevel(obj, 'r');
-		const res = this.checkNestedPropertyExist(obj, 'e');
+		let myList: any[] = [
+			{ id: 1, name: 'asif' },
+			{ id: 2, name: 'kashif' }
+		];
+		debugger;
+		/** foreach
+		 * return nothing.
+		 * foreach is just use for iteration, it has nothing to do with return, except it exit the current iteration, but the loop continues to the next iteration.
+		 * return statment which return a value in foreach is userless.
+		 */
+		let result = myList.forEach(x => {
+			return 1;
+		});
 
-		const abc = 'e' in obj;
-		const f = Object.hasOwn(obj, 'e');
-		const d = obj.hasOwnProperty('e');
+		/** map
+		 * return anything.
+		 *  return element, or custom element or any thing else in return statument.
+		 */
+		const result2 = myList.map(element => {
+			return 'a';
+		});
 
-		//this.logObjectProperties(obj);
-
-		interface OuterObject {
-			a: string;
-			b: {
-				c: number;
-				d: string;
-			};
-		}
+		/** filter
+		 * return element if truthy value is returned.
+		 * creates a new array with all elements that pass the test implemented by the provided function. It does not modify the original array.
+		 * filter does not return anything other than array elements.
+		 * element will be skipped from the final result, If you return a falsy value (like null, undefined, an empty string, or the number 0).
+		 * must have to write return statment in a multi-line callback function.
+		 */
+		const result3 = myList.filter(element => {
+			return element.id == 1 ? true : false;
+		});
+		console.log('test');
 	}
 
 	studentsList = [

@@ -14,30 +14,32 @@ export class Child1Component implements DoCheck, OnChanges, OnInit {
 	@Input() myObj!: { id: number; name: string };
 	@Input() id: number = 0;
 	@Input() name: string = '';
-	@Input() age!: FormControl | any;
+	@Input() agev!: number;
 	@Input() list!: FormArray | any;
 	dashboardWidgets: any[] = [];
 	changes!: SimpleChanges;
-	// dashboardWidgets object
-
-	//ngOnInit(): void {}
 
 	@Input() counter = 0;
+
+	get age(): number {
+		return this.agev;
+	}
+
+	set age(value: number) {
+		this.agev = value;
+	}
 
 	constructor(private cdr: ChangeDetectorRef) {}
 
 	ngOnChanges(changes: SimpleChanges) {
 		this.changes = changes;
-		if (changes['age']?.currentValue) {
-			debugger;
-		}
+		// if (changes['age']?.currentValue) {
+		// 	debugger;
+		// }
 	}
 
 	ngDoCheck(): void {
 		this.changes;
-		if (this.age) {
-			this.age;
-		}
 	}
 
 	ngOnInit() {
@@ -45,5 +47,13 @@ export class Child1Component implements DoCheck, OnChanges, OnInit {
 		// 	//this.counter++;
 		// 	// this.cdr.markForCheck(); // Manually mark for check to trigger change detection
 		// }, 2000);
+	}
+
+	increaseAge() {
+		// this.counter++;
+		this.age++;
+	}
+	ageClear() {
+		this.age = 0;
 	}
 }

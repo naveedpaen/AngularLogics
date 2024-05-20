@@ -1,16 +1,13 @@
 <p>child works!</p>
-<div>Counter: {{ counter }}</div>
-<br />
-{{ myObj | json }}
 
-<div>{{ age.value }}</div>
+age: {{ age | json }}
+<!-- <input type="number" [(ngModel)]="age"> -->
+<button (click)="increaseAge()">child age increase</button>
+<button (click)="ageClear()">child age clear</button>
 
-<div class="col-md-6">
-    <label>age:</label><br />
-    <input type="number" id="lname" name="age" [formControl]="age" /><br />
-</div>
-<hr />
-List
+<hr>
+
+
 
 <!-- ID : {{ id }} Name : {{ name }}
 

@@ -1,11 +1,16 @@
 <p>parent works!</p>
-Parent counter = {{ parentCounter }}
-{{ myObj | json }}
 
-<button (click)="addAge()">age increase</button>
-<button (click)="addCounter()">Increase counter</button>
+agev: {{ age | json }}
 
-<form [formGroup]="userForm" (submit)="onSave(userForm)">
+<button (click)="increaseAge()">parent age increase</button>
+<button (click)="ageClear()">parent age clear</button>
+<hr>
+
+<app-child1 [agev]="age"> </app-child1>
+
+<!-- <button (click)="increaseAge()">Increase counter</button> -->
+
+<!-- <form [formGroup]="userForm" (submit)="onSave(userForm)">
     <div>{{ userForm.getRawValue() | json }}</div>
     <span>{{ userForm.get('name')?.value | json }}</span>
     <button type="submit">save</button>
@@ -17,8 +22,7 @@ Parent counter = {{ parentCounter }}
             <input type="text" id="name" class="form-control" formControlName="name" />
         </div>
     </div>
-</form>
-<app-child1 [counter]="counter" [myObj]="myObj" [age]="myAge"> </app-child1>
+</form> -->
 <hr />
 
 <div *ngFor="let person of people; let i = index">

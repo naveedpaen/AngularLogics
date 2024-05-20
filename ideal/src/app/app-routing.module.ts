@@ -9,6 +9,7 @@ import { StaticControlsComponent } from './dynamic/static-controls/static-contro
 import { ReactiveSampleComponent } from './reactive-forms/reactive-sample/reactive-sample.component';
 import { TestComponent } from './test/test.component';
 import { Parent1Component } from './parent-child/parent1/parent1.component';
+import { ParentComponent } from './dynamic-components/parent/parent.component';
 
 const routes: Routes = [
 	{
@@ -50,6 +51,10 @@ const routes: Routes = [
 	{
 		path: 'test',
 		component: TestComponent
+	},
+	{
+		path: 'dynamic',
+		component: ParentComponent
 	}
 ];
 

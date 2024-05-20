@@ -17,7 +17,7 @@ export class Parent1Component {
 	myAge: number = 5;
 	myObj!: { id: number; name: string };
 	counter = 0;
-	parentCounter = 0;
+	age = 0;
 
 	ngOnInit() {
 		const abc = { id: 1, name: 'asif' };
@@ -65,8 +65,12 @@ export class Parent1Component {
 		// this.myAge++;
 	}
 
-	addCounter() {
+	increaseAge() {
 		// this.counter++;
-		this.parentCounter++;
+		this.age++;
+	}
+
+	ageClear() {
+		this.age = 0;
 	}
 }

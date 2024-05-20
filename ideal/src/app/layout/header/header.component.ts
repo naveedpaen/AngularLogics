@@ -19,6 +19,7 @@ import { ShareService } from 'src/app/share.service';
 					<li><a routerLink="/">Home</a></li>
 					<li><a routerLink="/about">About</a></li>
 					<li><a routerLink="/valid">Validation</a></li>
+					<li><a routerLink="/dynamic">Dynamic</a></li>
 					<li><a (click)="myMethod()">next</a></li>
 					<li><a (click)="test()">test</a></li>
 				</ul>
